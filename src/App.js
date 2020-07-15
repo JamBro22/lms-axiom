@@ -1,14 +1,16 @@
-import React, { Fragment } from "react";
-import Nav from "./components/layout/navbar/Navbar";
-import { CssBaseline } from "@material-ui/core";
+import React from "react";
+import Footer from "./components/layout/footer/Footer";
+import Navbar from "./components/layout/navbar/Navbar";
+import { CssBaseline, Box } from "@material-ui/core";
 import "./App.css";
 
 function App() {
   return (
-    <Fragment>
+    <Box>
       <CssBaseline />
-      <Nav />
-    </Fragment>
+      <Navbar />
+      <Footer />
+    </Box>
   );
 }
 

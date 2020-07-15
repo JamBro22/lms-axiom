@@ -1,0 +1,18 @@
+.footer {
+  background-color: #1f2325;
+  height: 60vh;
+  width: 100%;
+}
+
+.container-grid {
+  overflow: hidden;
+  padding-left: 30px;
+}
+
+.list {
+  color: #f5f5f5;
+}
+
+.list-item:hover {
+  color: #20b2aa;
+}

@@ -1,16 +1,21 @@
 import React from "react";
 import "./Navbar.css";
 import "../../../App.js";
-import logo from "../../img/axiom-logo.svg";
 
 const Navbar = () => {
+  const guestList = ["home", "about", "contact", "login", "sign up"];
+
   return (
     <nav className="nav">
+      <h1 className="londrina logo">Axiom.</h1>
       <ul className="nav-list">
-        <li className="nav-left">
-          <img src={logo} alt="logo" className="logo" />
-          <li className="fondamento nav-left logo-name">Axiom.</li>
-        </li>
+        {guestList.map((item) =>
+          item === "sign up" ? (
+            <li className="signup nav-item">{item}</li>
+          ) : (
+            <li className="nav-item">{item}</li>
+          )
+        )}
       </ul>
     </nav>
   );

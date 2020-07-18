@@ -1,0 +1,28 @@
+.users-block {
+  display: inline-flex;
+  padding-left: 60px;
+}
+
+.user-explanation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 40vw;
+}
+
+.image-teacher {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.teacher {
+  height: 60vh;
+  width: 50vw;
+}
+
+.btn {
+  color: #4a40b1;
+}

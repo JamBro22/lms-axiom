@@ -3,13 +3,15 @@ import "./Navbar.css";
 import "../../../App.js";
 
 const Navbar = () => {
-  const guestList = ["Home", "About", "Contact", "Login", "Sign Up"];
+  const guestLinks = ["Home", "About", "Contact", "Login", "Sign Up"];
 
   return (
     <nav className="nav">
-      <h1 className="londrina logo">Axiom.</h1>
+      <h1 className="londrina logo">
+        Axiom<span className="dot">.</span>
+      </h1>
       <ul className="nav-list">
-        {guestList.map((item) =>
+        {guestLinks.map((item) =>
           item === "Sign Up" ? (
             <li className="signup nav-item">{item}</li>
           ) : (

@@ -1,49 +1,7 @@
-.nav {
-  position: fixed;
-  display: flex;
-  background-color: #1f2325;
-  height: 60px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  box-shadow: 0px 6px 10px 1px rgba(0, 0, 0, 0.75);
-  z-index: 1;
-}
-
 .logo {
-  margin: 0 0 2px 30px;
-  width: 200px;
-  color: #20b2aa;
-  font-size: 40px;
+  color: #4a40b1;
 }
 
-.nav-list {
-  display: flex;
-  list-style: none;
-  font-family: Arial, Helvetica, sans-serif;
-  padding: 0;
-  margin: 15px 30px 15px auto;
-  color: #f5f5f5;
-}
-
-.nav-item {
-  margin: 0 5px 0 5px;
-  padding: 5px;
-  font-weight: bold;
-}
-
-.nav-item:hover {
-  border-bottom: 2px solid #20b2aa;
-  color: #20b2aa;
-}
-
-.signup {
-  border: 2px solid #f5f5f5;
-  padding: 2px 5px 2px 5px;
-}
-
-.signup:hover {
-  background-color: #05413e;
-  border: 2px solid #20b2aa;
-  color: #20b2aa;
+.dot {
+  color: #feb800;
 }

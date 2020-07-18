@@ -1,3 +1,25 @@
+* {
+  background-color: #f8f8ff;
+}
+
 .londrina {
-  font-family: "Londrina Outline", cursive;
+  font-family: "Londrina Solid", cursive;
+}
+
+.titillium {
+  font-family: "Titillium Web", sans-serif;
+}
+
+.varela {
+  font-family: "Varela Round", sans-serif;
+}
+
+.heading {
+  color: #4a40b1;
+  margin: 0;
+}
+
+.paragraph {
+  font-size: 0.9rem;
+  color: #706779;
 }

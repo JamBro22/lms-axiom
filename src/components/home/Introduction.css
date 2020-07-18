@@ -1,0 +1,23 @@
+.introduction {
+  text-align: center;
+  width: 50%;
+  height: 30vh;
+  margin: 25px auto;
+  padding: 20px;
+}
+
+.image-learn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.learn {
+  height: 60vh;
+  width: 60%;
+  margin: 0;
+}
+
+.btn {
+  margin: 0 auto;
+}

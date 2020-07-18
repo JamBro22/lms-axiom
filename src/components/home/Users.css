@@ -9,16 +9,17 @@
   justify-content: center;
   text-align: center;
   width: 40vw;
+  margin-left: 30p;
 }
 
-.image-teacher {
+.image-test {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
 }
 
-.teacher {
+.test {
   height: 60vh;
   width: 50vw;
 }

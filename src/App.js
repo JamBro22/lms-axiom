@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/layout/navbar/Navbar";
-// import Home from "./components/home/Home";
-// import Footer from "./components/layout/footer/Footer";
+import Home from "./components/home/Home";
+import Footer from "./components/layout/footer/Footer";
 import { CssBaseline, Box } from "@material-ui/core";
 import "./App.css";
 
@@ -10,8 +10,8 @@ function App() {
     <Box>
       <CssBaseline />
       <Navbar />
-      {/* <Home /> */}
-      {/* <Footer /> */}
+      <Home />
+      <Footer />
     </Box>
   );
 }

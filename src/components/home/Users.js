@@ -1,5 +1,5 @@
 import React from "react";
-import teacher from "../../img/teacher.svg";
+import test from "../../img/exam.svg";
 import "./Users.css";
 import { Button } from "@material-ui/core";
 
@@ -18,8 +18,8 @@ const Users = () => {
           Get Started
         </Button>
       </div>
-      <div className="image-teacher">
-        <img src={teacher} alt="teacher" className="teacher" />
+      <div className="image-test">
+        <img src={test} alt="test" className="test" />
       </div>
     </div>
   );

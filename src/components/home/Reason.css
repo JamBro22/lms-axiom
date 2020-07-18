@@ -3,14 +3,14 @@
   padding: 20px;
 }
 
-.image-test {
+.image-teacher {
   display: flex;
   flex-direction: column;
   justify-content: center;
   height: 100vh;
 }
 
-.test {
+.teacher {
   height: 70vh;
   width: 50vw;
 }

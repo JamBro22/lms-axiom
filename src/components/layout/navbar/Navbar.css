@@ -1,7 +1,31 @@
+.nav {
+  display: flex;
+  height: 70px;
+  letter-spacing: 0.1rem;
+}
+
 .logo {
+  margin: 12px 0 5px 50px;
   color: #4a40b1;
+  font-size: xx-large;
 }
 
 .dot {
   color: #feb800;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  margin-left: auto;
+}
+
+.nav-item {
+  margin: 10px 10px 0 10px;
+  padding: 5px;
+}
+
+.signup {
+  margin-right: 40px;
+  border: 1px solid black;
 }

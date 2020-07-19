@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import learn from "../../img/learn.png";
 import "./Introduction.css";
 import "../../App.css";
@@ -16,9 +16,9 @@ const Introduction = () => {
           learning but rather a support system that will work side by side with
           teachers to provide better services to learners.
         </p>
-        <Button variant="contained" size="medium">
-          Get Started
-        </Button>
+        <Link to="/signup" className="link-item">
+          <div className="orange-btn">Get Started</div>
+        </Link>
       </div>
       <div className="image-learn">
         <img src={learn} alt="learn" className="learn" />

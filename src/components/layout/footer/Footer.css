@@ -1,31 +1,51 @@
 .grid-container {
-  background-color: #feddd4;
+  bottom: 0%;
   width: 100vw;
+  height: 40vh;
+  margin-top: 20px;
+  border-top: 1px solid #706779;
+}
+
+.grid-item {
+  padding: 35px;
 }
 
 .links {
   list-style: none;
-  margin: 0;
 }
 
-.link {
-  margin: 10px 45px;
+.link:hover {
+  color: #4a40b1;
+  font-weight: bolder;
+}
+
+.address {
+  margin-top: 20px;
 }
 
 .icons {
   display: flex;
   list-style: none;
+  padding: 0;
 }
 
-.icon {
-  margin: 2px 5px;
+#icon {
+  margin: 10px 30px 0 0;
+  font-size: 18px;
 }
 
-.address {
-  margin: 0;
+.head {
+  margin: 8px 0 5px 8px;
 }
 
-.contact {
-  margin: 0;
-  color: blueviolet;
+.input-label {
+  margin: 10px 0 2px 10px;
+}
+
+#details {
+  margin: 20px 0;
+}
+
+.contact-icon {
+  margin: 0 0 10px 10px;
 }

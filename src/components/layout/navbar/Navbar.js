@@ -1,9 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import "../../../App.js";
 
 const Navbar = () => {
-  const guestLinks = ["Home", "About", "Contact", "Login", "Sign Up"];
+  const guestLinks = ["Login", "Sign Up"];
 
   return (
     <nav className="nav">
@@ -13,9 +14,17 @@ const Navbar = () => {
       <ul className="nav-list">
         {guestLinks.map((item) =>
           item === "Sign Up" ? (
-            <li className="signup nav-item">{item}</li>
+            <NavLink to="/signup" className="signup nav-item" key={item}>
+              {item}
+            </NavLink>
           ) : (
-            <li className="nav-item">{item}</li>
+            <NavLink
+              to={item.toLowerCase()}
+              className="nav-item link-item"
+              key={item}
+            >
+              {item}
+            </NavLink>
           )
         )}
       </ul>

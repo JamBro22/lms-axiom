@@ -2,6 +2,7 @@ import React from "react";
 import Introduction from "./Introduction";
 import Users from "./Users";
 import Reason from "./Reason";
+import Features from "./Features";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Introduction />
       <Users />
       <Reason />
+      <Features />
     </div>
   );
 };

@@ -1,7 +1,11 @@
 .nav {
+  position: sticky;
+  top: 0%;
   display: flex;
   height: 70px;
+  width: 100%;
   letter-spacing: 0.1rem;
+  z-index: 1;
 }
 
 .logo {
@@ -23,9 +27,24 @@
 .nav-item {
   margin: 10px 10px 0 10px;
   padding: 5px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  color: #2f3136;
+}
+
+.nav-item:hover {
+  color: #4a40b1;
+  font-weight: bolder;
 }
 
 .signup {
   margin-right: 40px;
-  border: 1px solid black;
+  width: 80px;
+  border: 1px solid #706779;
+  border-radius: 20px;
+}
+
+.signup:hover {
+  border: 2px solid #4a40b1;
 }

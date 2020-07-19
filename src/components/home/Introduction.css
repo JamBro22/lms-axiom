@@ -2,8 +2,7 @@
   text-align: center;
   width: 60%;
   height: 30vh;
-  margin: 0 auto 25px auto;
-  padding: 20px;
+  margin: 0 auto 27px auto;
 }
 
 .image-learn {
@@ -15,9 +14,4 @@
 .learn {
   height: 60vh;
   width: 65%;
-  margin: 0;
-}
-
-.btn {
-  margin: 0 auto;
 }

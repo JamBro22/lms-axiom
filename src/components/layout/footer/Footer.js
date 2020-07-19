@@ -1,12 +1,12 @@
 import React from "react";
-import { Grid, TextField } from "@material-ui/core";
+import { Link } from "react-router-dom";
+import { Grid } from "@material-ui/core";
 import "./Footer.css";
+import "../../../App.css";
 
 const Footer = () => {
   const links = [
     "Home",
-    "About",
-    "Contact",
     "Login",
     "Sign Up",
     "Terms and Conditions",
@@ -19,67 +19,84 @@ const Footer = () => {
     postCode: 7945,
   };
   const icons = [
-    "fab fa-facebook-square",
-    "fab fa-instagram-square",
-    "fab fa-pinterest-square",
+    "fab fa-facebook-f",
+    "fab fa-instagram",
+    "fab fa-pinterest-p",
     "fab fa-youtube",
   ];
   const contact = { phone: "0800 937 836", email: "help@axiom.edu" };
 
   return (
-    <footer className="footer">
-      <Grid container spacing={3} className="grid-container">
-        <Grid item md={4} className="links">
-          {links.map((link) => {
+    <Grid container className="grid-container">
+      <Grid item md={4} className="links grid-item">
+        {links.map((link) => {
+          return (
+            <Link
+              to={
+                link === "Home"
+                  ? "/"
+                  : link === "Sign Up"
+                  ? "signup"
+                  : link.toLowerCase()
+              }
+              className="link-item"
+              key={link}
+            >
+              <li className="paragraph link">{link}</li>
+            </Link>
+          );
+        })}
+      </Grid>
+      <Grid item md={4} className="grid-item">
+        <h1 className="heading head">Contact Us</h1>
+        <form action="#">
+          <label htmlFor="email" className="paragraph input-label">
+            Email:
+          </label>
+          <br />
+          <input type="email" name="email" className="input paragraph" />
+          <br />
+          <label htmlFor="message" className="paragraph input-label">
+            Message:
+          </label>
+          <br />
+          <textarea
+            type="text"
+            name="message"
+            rows="4"
+            cols="30"
+            className="input paragraph"
+          />
+          <br />
+          <input type="submit" value="Send" className="input" />
+        </form>
+        <p className="paragraph" id="details">
+          <i className="fas fa-mobile-alt contact-icon"></i>{" "}
+          {" " + contact.phone}
+          <br />
+          <i className="fas fa-envelope-square email contact-icon"></i>{" "}
+          {" " + contact.email}
+        </p>
+      </Grid>
+      <Grid item md={4} className="paragraph grid-item">
+        <p className="address">{address.street}</p>
+        <p className="address">{address.suburb}</p>
+        <p className="address">{address.city}</p>
+        <p className="address">{address.postCode}</p>
+        <p className="address">
+          Copyright <i className="far fa-copyright"></i> 2020 Axiom.
+        </p>
+        <ul className="icons">
+          {icons.map((icon) => {
             return (
-              <li key={link} className="link">
-                {link}
+              <li key={icon} className=" paragraph" id="icon">
+                <i className={icon}></i>
               </li>
             );
           })}
-        </Grid>
-        <Grid item md={4} className="address">
-          <p>{address.street}</p>
-          <p>{address.suburb}</p>
-          <p>{address.city}</p>
-          <p>{address.postCode}</p>
-          <p>
-            Copyright <i class="far fa-copyright"></i>2020 Axiom.
-          </p>
-          <ul className="icons">
-            {icons.map((icon) => {
-              return (
-                <li key={icon} className="icon">
-                  <i className={icon}></i>
-                </li>
-              );
-            })}
-          </ul>
-        </Grid>
-        <Grid item md={4} className="contact">
-          <h1>Contact Us</h1>
-          <TextField
-            id="outlined-email-input"
-            label="Email"
-            type="email"
-            autoComplete="current-password"
-            variant="outlined"
-          />
-          <TextField
-            id="outlined-message-input"
-            label="Message"
-            type="text"
-            multiline
-            rows={3}
-            variant="outlined"
-          />
-          <p>
-            <i class="fas fa-mobile-alt"></i> {" " + contact.phone}{" "}
-            <i class="fas fa-envelope-square"></i> {" " + contact.email}
-          </p>
-        </Grid>
+        </ul>
       </Grid>
-    </footer>
+    </Grid>
   );
 };
 

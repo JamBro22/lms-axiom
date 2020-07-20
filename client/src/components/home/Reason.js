@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import teacher from "../../img/teacher.svg";
 import "./Reason.css";
-import "../../App.css";
 
 const Reason = () => {
   return (

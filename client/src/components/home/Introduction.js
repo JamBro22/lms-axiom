@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import learn from "../../img/learn.png";
 import "./Introduction.css";
-import "../../App.css";
 
 const Introduction = () => {
   return (

@@ -7,7 +7,7 @@ const Login = () => {
     <div className="login-container">
       <img src={login} alt="login" className="login" />
       <form action="#" className="login-form">
-        <h1 className="heading login-head">Login</h1>
+        <h1 className="titillium heading login-head">Login</h1>
         <input
           type="email"
           name="email"

@@ -1,3 +1,4 @@
 {
-  "mongoURI": "mongodb+srv://Jamie:GhBBkPqDSEanzz3t@axiom.potfb.mongodb.net/<dbname>?retryWrites=true&w=majority"
+  "mongoURI": "mongodb+srv://Jamie:L4XC8pnHs320okSS@axiom.potfb.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "jwtSecret": "axiom.jwt"
 }

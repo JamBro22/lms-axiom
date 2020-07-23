@@ -1,21 +1,23 @@
 const mongoose = require("mongoose");
 
-const UserSchema = mongoose.Schema({
-  firstName: {
+const CourseSchema = mongoose.Schema({
+  title: {
     type: String,
     required: true,
   },
-  lastName: {
+  description: {
     type: String,
     required: true,
   },
-  email: {
+  creator: {
     type: String,
     required: true,
-    unique: true,
   },
-  password: {
-    type: String,
+  aboutAuthor: String,
+  numOfStudents: Number,
+  reviews: Array,
+  coursework: {
+    type: Array,
     required: true,
   },
   date: {
@@ -24,4 +26,4 @@ const UserSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("user", UserSchema);
+module.exports = mongoose.model("course", CourseSchema);

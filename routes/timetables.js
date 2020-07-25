@@ -13,8 +13,8 @@ router.get("/", auth, async (req, res) => {
   try {
     const timetables = await Timetable.find({ user: req.user.id });
     res.json(timetables);
-  } catch (err) {
-    console.error(err.message);
+  } catch (error) {
+    console.error(error.message);
     res.status(500).send("Server Error");
   }
 });
@@ -52,7 +52,7 @@ router.post(
 
       res.json(timetable);
     } catch (error) {
-      console.error(err.message);
+      console.error(error.message);
       res.status(500).send("Server Error");
     }
   }
@@ -90,7 +90,7 @@ router.put("/:id", auth, async (req, res) => {
 
     res.json(timetable);
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
     res.status(500).send("Server Error");
   }
 });
@@ -112,7 +112,7 @@ router.delete("/:id", auth, async (req, res) => {
 
     res.json({ msg: "Entry deleted" });
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
     res.status(500).send("Server Error");
   }
 });

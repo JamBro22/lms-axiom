@@ -6,6 +6,21 @@ const { check, validationResult } = require("express-validator");
 const User = require("../models/User");
 const Course = require("../models/Course");
 
+// @route  GET api/courses
+// @description  get created courses
+// @access  Private
+router.get("/", auth, async (req, res) => {
+  try {
+    const courses = await Course.find({ user: req.user.id }).sort({
+      date: -1,
+    });
+    res.json(courses);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 // @route  POST api/courses
 // @description  create a new course
 // @access Private
@@ -55,21 +70,6 @@ router.put(
     }
   }
 );
-
-// @route  GET api/courses
-// @description  get created courses
-// @access  Private
-router.get("/", auth, async (req, res) => {
-  try {
-    const courses = await Course.find({ user: req.user.id }).sort({
-      date: -1,
-    });
-    res.json(courses);
-  } catch (error) {
-    console.error(error.message);
-    res.status(500).send("Server Error");
-  }
-});
 
 // @route  PUT api/courses/:id
 // @description  updated an existing course

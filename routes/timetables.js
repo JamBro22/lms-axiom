@@ -61,15 +61,60 @@ router.post(
 // @route  PUT api/timetables/:id
 // @description  update activities in database
 // @access  Private
-router.put("/:id", (req, res) => {
-  res.send("update activities");
+router.put("/:id", auth, async (req, res) => {
+  const { time, day, activity } = req.body;
+
+  const timetableFields = {};
+  if (time) timetableFields.time = time;
+  if (day) timetableFields.day = day;
+  if (activity) timetableFields.activity = activity;
+
+  try {
+    let timetable = await Timetable.findById(req.params.id);
+
+    if (!timetable) return res.status(404).json({ msg: "Entry not found" });
+
+    if (timetable.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "Not authorized" });
+    }
+
+    timetable = await Timetable.findByIdAndUpdate(
+      req.params.id,
+      {
+        $set: timetableFields,
+      },
+      {
+        new: true,
+      }
+    );
+
+    res.json(timetable);
+  } catch (error) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 // @route  DELETE api/timetables/:id
 // @description  delete activity from database
 // @access  Private
-router.delete("/:id", (req, res) => {
-  res.send("delete activities");
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    let timetable = await Timetable.findById(req.params.id);
+
+    if (!timetable) return res.status(404).json({ msg: "Entry not found" });
+
+    if (timetable.user.toString() !== req.user.id) {
+      return res.status(401).json({ msg: "Not authorized" });
+    }
+
+    await Timetable.findByIdAndRemove(req.params.id);
+
+    res.json({ msg: "Entry deleted" });
+  } catch (error) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
 });
 
 module.exports = router;

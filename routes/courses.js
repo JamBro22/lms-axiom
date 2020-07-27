@@ -6,14 +6,12 @@ const { check, validationResult } = require("express-validator");
 const User = require("../models/User");
 const Course = require("../models/Course");
 
-// @route  GET api/courses
-// @description  get created courses
-// @access  Private
-router.get("/", auth, async (req, res) => {
+// @route  GET /api/courses
+// @description  get all courses
+// @access  Public
+router.get("/", async (req, res) => {
   try {
-    const courses = await Course.find({ user: req.user.id }).sort({
-      date: -1,
-    });
+    const courses = await Course.find();
     res.json(courses);
   } catch (error) {
     console.error(error.message);
@@ -21,74 +19,63 @@ router.get("/", auth, async (req, res) => {
   }
 });
 
-// @route  POST api/courses
+// @route  POST /api/courses
 // @description  create a new course
-// @access Private
-router.put(
+// @access  Private
+router.post(
   "/",
   [
     auth,
     [
-      check("title", "Title is required").not().isEmpty(),
-      check("description", "A description is required").not().isEmpty(),
-      check("coursework", "Add courses").not().isEmpty(),
+      check("title", "Please add a title").not().isEmpty(),
+      check("description", "Please add a description").not().isEmpty(),
+      check("coursework", "Please add some work"),
     ],
   ],
   async (req, res) => {
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
-    }
-
-    const {
-      title,
-      description,
-      creator,
-      aboutAuthor,
-      numOfStudents,
-      reviews,
-      coursework,
-    } = req.body;
-
     try {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+
+      const { title, description, numOfStudents, coursework } = req.body;
+
       const newCourse = new Course({
         title,
         description,
-        creator,
-        aboutAuthor,
         numOfStudents,
-        reviews,
         coursework,
+        user: req.user.id,
       });
 
       const course = await newCourse.save();
 
       res.json(course);
     } catch (error) {
-      console.error(err.message);
+      console.error(error.message);
       res.status(500).send("Server Error");
     }
   }
 );
 
-// @route  PUT api/courses/:id
-// @description  updated an existing course
+// @route  PUT /api/course/:id
+// @description  update a course
 // @access  Private
 router.put("/:id", auth, async (req, res) => {
-  const { title, description, aboutAuthor, coursework } = req.body;
+  const { title, description, coursework, numOfStudents } = req.body;
 
   const courseFields = {};
-  if (title) contactFields.title = title;
-  if (description) contactFields.description = description;
-  if (aboutAuthor) contactFields.aboutAuthor = aboutAuthor;
-  if (coursework) contactFields.coursework = coursework;
+  if (title) courseFields.title = title;
+  if (description) courseFields.description = description;
+  if (coursework) courseFields.coursework = coursework;
+  if (numOfStudents) courseFields.numOfStudents = numOfStudents;
 
   try {
     let course = await Course.findById(req.params.id);
 
     if (!course) return res.status(404).json({ msg: "Course not found" });
 
-    // make sure user owns course
     if (course.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: "Not authorized" });
     }
@@ -110,25 +97,24 @@ router.put("/:id", auth, async (req, res) => {
   }
 });
 
-// @route  DELETE api/classes/:id
-// @description  delete an existing course
-// @access Private
-router.delete("/", auth, async (req, res) => {
+// @route  DELETE  /api/courses/:id
+// @description  delete a course
+// @access  Private
+router.delete("/:id", auth, async (req, res) => {
   try {
     let course = await Course.findById(req.params.id);
 
     if (!course) return res.status(404).json({ msg: "Course not found" });
 
-    // make sure user owns course
     if (course.user.toString() !== req.user.id) {
       return res.status(401).json({ msg: "Not authorized" });
     }
 
     await Course.findByIdAndRemove(req.params.id);
 
-    res.json({ msg: "Course removed" });
-  } catch (err) {
-    console.error(err.message);
+    res.json({ msg: "Course deleted" });
+  } catch (error) {
+    console.error(error.message);
     res.status(500).send("Server Error");
   }
 });

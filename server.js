@@ -12,9 +12,8 @@ app.use(express.json({ extended: false }));
 // Define routes
 app.use("/api/users", require("./routes/users"));
 app.use("/api/auth", require("./routes/auth"));
-app.use("/api/courses", require("./routes/courses"));
 app.use("/api/timetables", require("./routes/timetables"));
-app.use("/api/reviews", require("./routes/reviews"));
+app.use("/api/courses", require("./routes/courses"));
 
 const PORT = process.env.PORT || 5000;
 

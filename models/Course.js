@@ -1,6 +1,16 @@
 const mongoose = require("mongoose");
 
 const CourseSchema = mongoose.Schema({
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "users",
+  },
+  coursework: [
+    {
+      title: String,
+      lesson: String,
+    },
+  ],
   title: {
     type: String,
     required: true,
@@ -9,16 +19,9 @@ const CourseSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  creator: {
-    type: String,
-    required: true,
-  },
-  aboutAuthor: String,
-  numOfStudents: Number,
-  reviews: Array,
-  coursework: {
-    type: Array,
-    required: true,
+  numOfStudents: {
+    type: Number,
+    default: 0,
   },
   date: {
     type: Date,

@@ -38,13 +38,14 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { time, day, activity } = req.body;
+    const { time, day, activity, reminder } = req.body;
 
     try {
       const newTimetable = new Timetable({
         time,
         day,
         activity,
+        reminder,
         user: req.user.id,
       });
 
@@ -62,12 +63,13 @@ router.post(
 // @description  update activities in database
 // @access  Private
 router.put("/:id", auth, async (req, res) => {
-  const { time, day, activity } = req.body;
+  const { time, day, activity, important, reminder } = req.body;
 
   const timetableFields = {};
   if (time) timetableFields.time = time;
   if (day) timetableFields.day = day;
   if (activity) timetableFields.activity = activity;
+  if (reminder) timetableFields.reminder = reminder;
 
   try {
     let timetable = await Timetable.findById(req.params.id);

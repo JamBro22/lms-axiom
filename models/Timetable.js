@@ -15,10 +15,7 @@ const TimetableSchema = mongoose.Schema({
   },
   activity: {
     type: String,
-  },
-  important: {
-    type: Boolean,
-    default: false,
+    required: true,
   },
   reminder: {
     type: Boolean,

@@ -16,6 +16,14 @@ const TimetableSchema = mongoose.Schema({
   activity: {
     type: String,
   },
+  important: {
+    type: Boolean,
+    default: false,
+  },
+  reminder: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 module.exports = mongoose.model("timetable", TimetableSchema);

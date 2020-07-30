@@ -27,9 +27,10 @@ router.post(
   [
     auth,
     [
+      check("image", "Please add an image").not().isEmpty(),
       check("title", "Please add a title").not().isEmpty(),
       check("description", "Please add a description").not().isEmpty(),
-      check("coursework", "Please add some work"),
+      check("content", "Add some content").not().isEmpty(),
     ],
   ],
   async (req, res) => {
@@ -39,13 +40,14 @@ router.post(
         return res.status(400).json({ errors: errors.array() });
       }
 
-      const { title, description, numOfStudents, coursework } = req.body;
+      const { image, title, description, students, content } = req.body;
 
       const newCourse = new Course({
+        image,
         title,
         description,
-        numOfStudents,
-        coursework,
+        students,
+        content,
         user: req.user.id,
       });
 
@@ -63,13 +65,14 @@ router.post(
 // @description  update a course
 // @access  Private
 router.put("/:id", auth, async (req, res) => {
-  const { title, description, coursework, numOfStudents } = req.body;
+  const { image, title, description, students, content } = req.body;
 
   const courseFields = {};
+  if (image) courseFields.image = image;
   if (title) courseFields.title = title;
   if (description) courseFields.description = description;
-  if (coursework) courseFields.coursework = coursework;
-  if (numOfStudents) courseFields.numOfStudents = numOfStudents;
+  if (students) courseFields.students = students;
+  if (content) courseFields.content = content;
 
   try {
     let course = await Course.findById(req.params.id);

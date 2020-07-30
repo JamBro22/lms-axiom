@@ -1,21 +1,5 @@
 const mongoose = require("mongoose");
 
-const ContentSchema = mongoose.Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  video: {
-    type: String,
-    required: true,
-  },
-  number: {
-    type: Number,
-  },
-});
-
-module.exports = mongoose.model("content", ContentSchema);
-
 const CourseSchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -37,7 +21,10 @@ const CourseSchema = mongoose.Schema({
     type: Number,
     default: 0,
   },
-  content: [ContentSchema],
+  content: {
+    type: String,
+    required: true,
+  },
   date: {
     type: Date,
     default: Date.now,

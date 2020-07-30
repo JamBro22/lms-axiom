@@ -1,25 +1,39 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./components/layout/navbar/Navbar";
+// import Navbar from "./components/layout/navbar/Navbar";
+import Alerts from "./components/layout/Alert";
 import Home from "./components/home/Home";
-import Login from "./components/login/Login";
-import SignUp from "./components/signup/SignUp";
+import SignUp from "./components/auth/SignUp";
+import Login from "./components/auth/Login";
 import Footer from "./components/layout/footer/Footer";
 import { CssBaseline } from "@material-ui/core";
+
+import AuthState from "./context/auth/AuthState";
+import AlertState from "./context/alerts/AlertState";
+import setAuthToken from "./utils/setAuthToken";
 import "./App.css";
+
+if (localStorage.token) {
+  setAuthToken(localStorage.token);
+}
 
 function App() {
   return (
-    <Router>
-      <CssBaseline />
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/signup" exact component={SignUp} />
-      </Switch>
-      <Footer />
-    </Router>
+    <AuthState>
+      <AlertState>
+        <Router>
+          <CssBaseline />
+          {/* <Navbar /> */}
+          <Alerts />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/signup" exact component={SignUp} />
+            <Route path="/login" exact component={Login} />
+          </Switch>
+          <Footer />
+        </Router>
+      </AlertState>
+    </AuthState>
   );
 }
 

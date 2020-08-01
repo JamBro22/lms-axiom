@@ -5,9 +5,11 @@ import Alerts from "./components/layout/Alert";
 import Home from "./components/home/Home";
 import SignUp from "./components/auth/SignUp";
 import Login from "./components/auth/Login";
+import Dashboard from "./components/dashboard/Dashboard";
 import Footer from "./components/layout/footer/Footer";
 import { CssBaseline } from "@material-ui/core";
 
+import CourseState from "./context/courses/CourseState";
 import AuthState from "./context/auth/AuthState";
 import AlertState from "./context/alerts/AlertState";
 import setAuthToken from "./utils/setAuthToken";
@@ -20,19 +22,22 @@ if (localStorage.token) {
 function App() {
   return (
     <AuthState>
-      <AlertState>
-        <Router>
-          <CssBaseline />
-          {/* <Navbar /> */}
-          <Alerts />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/signup" exact component={SignUp} />
-            <Route path="/login" exact component={Login} />
-          </Switch>
-          <Footer />
-        </Router>
-      </AlertState>
+      <CourseState>
+        <AlertState>
+          <Router>
+            <CssBaseline />
+            {/* <Navbar /> */}
+            <Alerts />
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/signup" exact component={SignUp} />
+              <Route path="/login" exact component={Login} />
+              <Route path="/dashboard" exact component={Dashboard} />
+            </Switch>
+            <Footer />
+          </Router>
+        </AlertState>
+      </CourseState>
     </AuthState>
   );
 }

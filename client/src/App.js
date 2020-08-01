@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import Navbar from "./components/layout/navbar/Navbar";
+import PrivateRoute from "./components/routing/PrivateRoute";
+import Navbar from "./components/layout/navbar/Navbar";
 import Alerts from "./components/layout/Alert";
 import Home from "./components/home/Home";
 import SignUp from "./components/auth/SignUp";
@@ -27,13 +28,13 @@ function App() {
         <AlertState>
           <Router>
             <CssBaseline />
-            {/* <Navbar /> */}
+            <Navbar />
             <Alerts />
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/signup" exact component={SignUp} />
               <Route path="/login" exact component={Login} />
-              <Route path="/dashboard" exact component={Dashboard} />
+              <PrivateRoute path="/dashboard" exact component={Dashboard} />
               <Route path="/explore" exact component={Explore} />
             </Switch>
             {/* <Footer /> */}

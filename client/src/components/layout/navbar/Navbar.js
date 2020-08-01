@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
-import "../../../App.js";
+import AuthContext from "../../../context/auth/authContext";
 
 const Navbar = () => {
+  const authContext = useContext(AuthContext);
+  const { isAuthenticated, logout, user } = authContext;
+
   const guestLinks = ["Login", "Sign Up"];
+
+  const onLogout = () => {
+    logout();
+  };
 
   return (
     <nav className="nav">
@@ -27,6 +34,9 @@ const Navbar = () => {
             </NavLink>
           )
         )}
+        <a href="#" onClick={onLogout}>
+          logout
+        </a>
       </ul>
     </nav>
   );

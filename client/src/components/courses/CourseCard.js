@@ -1,25 +1,21 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const CourseCard = ({ course }) => {
-  const { id, title, description } = course;
+  const { image, title, user, description } = course;
 
   return (
-    <div className="container">
-      <div
-        className="card"
-        style={{ width: "250px", height: "500px", margin: "0" }}
-      >
-        <p>{id}</p>
-        <div className="card-body">
-          <h1 className="card-title">{title}</h1>
-          <p className="card-text">{description}</p>
-          <a href="#" className="btn btn-primary">
-            Learn More
-          </a>
-        </div>
-      </div>
+    <div className="card">
+      <div>{image}</div>
+      <h3 className="card-title">{title}</h3>
+      <h6 className="card-title">{user}</h6>
+      <p className="card-text">{description}</p>
     </div>
   );
+};
+
+CourseCard.propTypes = {
+  course: PropTypes.object.isRequired,
 };
 
 export default CourseCard;

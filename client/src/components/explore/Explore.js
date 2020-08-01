@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import Courses from "../../components/courses/Courses";
 
-const Dashboard = () => {
+const Explore = () => {
   return (
     <Fragment>
-      <h1>Dashboard</h1>
+      <h1>Explore</h1>
       <Courses />
     </Fragment>
   );
 };
 
-export default Dashboard;
+export default Explore;

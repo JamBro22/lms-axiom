@@ -23,7 +23,7 @@ const Features = () => {
             {features.map((feature) => {
               return (
                 <li key={feature} className="feature-list-item">
-                  <i class="fas fa-dot-circle list-dot"></i>
+                  <i className="fas fa-dot-circle list-dot"></i>
                   {"  " + feature}
                 </li>
               );

@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import axios from "axios";
 import CourseContext from "./courseContext";
 import courseReducer from "./courseReducer";
 import {
@@ -44,12 +45,34 @@ const CourseState = (props) => {
   const [state, dispatch] = useReducer(courseReducer, initialState);
 
   //   get courses
+  const getAllCourses = () => {
+    console.log("get courses");
+  };
+
+  // get user's joined courses
+  const getJoinedCourses = () => {
+    console.log("joined courses");
+  };
+
+  // get user's created courses
+  const getCreatedCourses = () => {
+    console.log("created courses");
+  };
 
   //   add course
+  const addCourse = () => {
+    console.log("add courses");
+  };
 
   // update course
+  const updateCourse = () => {
+    console.log("update courses");
+  };
 
   //  delete course
+  const deleteCourse = () => {
+    console.log("delete courses");
+  };
 
   //  set current course
 
@@ -63,6 +86,12 @@ const CourseState = (props) => {
     <CourseContext.Provider
       value={{
         courses: state.courses,
+        getAllCourses,
+        getJoinedCourses,
+        getCreatedCourses,
+        addCourse,
+        updateCourse,
+        deleteCourse,
       }}
     >
       {props.children}

@@ -9,7 +9,6 @@ const Courses = () => {
 
   return (
     <Fragment>
-      <h1>Dashboard</h1>
       {courses.map((course) => {
         return <CourseCard course={course} key={course.id} />;
       })}

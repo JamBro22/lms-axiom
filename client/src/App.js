@@ -6,7 +6,8 @@ import Home from "./components/home/Home";
 import SignUp from "./components/auth/SignUp";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
-import Footer from "./components/layout/footer/Footer";
+import Explore from "./components/explore/Explore";
+// import Footer from "./components/layout/footer/Footer";
 import { CssBaseline } from "@material-ui/core";
 
 import CourseState from "./context/courses/CourseState";
@@ -33,8 +34,9 @@ function App() {
               <Route path="/signup" exact component={SignUp} />
               <Route path="/login" exact component={Login} />
               <Route path="/dashboard" exact component={Dashboard} />
+              <Route path="/explore" exact component={Explore} />
             </Switch>
-            <Footer />
+            {/* <Footer /> */}
           </Router>
         </AlertState>
       </CourseState>

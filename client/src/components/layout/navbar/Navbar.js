@@ -5,7 +5,8 @@ import AuthContext from "../../../context/auth/authContext";
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
-  const { isAuthenticated, logout, user } = authContext;
+  const { logout } = authContext;
+  // change navbar on authentication and username
 
   const guestLinks = ["Login", "Sign Up"];
 

@@ -40,14 +40,14 @@ const SignUp = (props) => {
 
     if (password !== password2) {
       setAlert("Passwords do not match", "danger");
+    } else {
+      register({
+        firstName,
+        lastName,
+        email,
+        password,
+      });
     }
-
-    register({
-      firstName,
-      lastName,
-      email,
-      password,
-    });
   };
 
   return (

@@ -11,15 +11,7 @@ const Course = require("../models/Course");
 // @access  Public
 router.get("/", async (req, res) => {
   try {
-    const courses = await Course.find()
-      .populate("user")
-      .exec((error, doc) => {
-        if (error) {
-          return console.error(error.message);
-        } else {
-          res.json(user);
-        }
-      });
+    const courses = await Course.find();
     res.json(courses);
   } catch (error) {
     console.error(error.message);

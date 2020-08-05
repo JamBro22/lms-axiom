@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const courseSchema = (require = "CourseSchema");
 
 const UserSchema = mongoose.Schema({
   firstName: {
@@ -18,6 +19,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  joined: [],
   date: {
     type: Date,
     default: Date.now,

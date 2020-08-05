@@ -11,42 +11,20 @@ import {
 
 const CourseState = (props) => {
   const initialState = {
-    courses: [
-      {
-        id: 1,
-        user: "Jim",
-        image: "jim's image",
-        title: "This is a title for Jim",
-        description: "This is the description for Jim",
-        students: 1,
-        content: "Here is some content from Jim",
-      },
-      {
-        id: 2,
-        user: "Lily",
-        image: "lily's image",
-        title: "This is a title for Lily",
-        description: "This is the description for Lily",
-        students: 2,
-        content: "Here is some content from Lily",
-      },
-      {
-        id: 3,
-        user: "Mark",
-        image: "mark's image",
-        title: "This is a title for Mark",
-        description: "This is the description for Mark",
-        students: 3,
-        content: "Here is some content from Mark",
-      },
-    ],
+    courses: [],
   };
 
   const [state, dispatch] = useReducer(courseReducer, initialState);
 
   //   get courses
-  const getAllCourses = () => {
-    console.log("get courses");
+  const getAllCourses = async () => {
+    try {
+      const res = await axios.get("/api/courses");
+
+      dispatch({ type: GET_COURSES, payload: res.data });
+    } catch (error) {
+      console.error(error.msg);
+    }
   };
 
   // get user's joined courses
@@ -60,8 +38,19 @@ const CourseState = (props) => {
   };
 
   //   add course
-  const addCourse = () => {
-    console.log("add courses");
+  const addCourse = async (course) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      const res = await axios.post("/api/courses", course, config);
+      dispatch({ type: ADD_COURSE, payload: res.data });
+    } catch (error) {
+      // dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
+      console.error(error.msg);
+    }
   };
 
   // update course

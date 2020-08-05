@@ -8,7 +8,8 @@ import SignUp from "./components/auth/SignUp";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Explore from "./components/explore/Explore";
-// import Footer from "./components/layout/footer/Footer";
+import CourseForm from "./components/courses/CourseForm";
+import Footer from "./components/layout/footer/Footer";
 import { CssBaseline } from "@material-ui/core";
 
 import CourseState from "./context/courses/CourseState";
@@ -36,8 +37,9 @@ function App() {
               <Route path="/login" exact component={Login} />
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
               <Route path="/explore" exact component={Explore} />
+              <PrivateRoute path="/addcourse" exact component={CourseForm} />
             </Switch>
-            {/* <Footer /> */}
+            <Footer />
           </Router>
         </AlertState>
       </CourseState>

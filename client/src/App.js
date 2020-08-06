@@ -9,6 +9,7 @@ import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
 import Explore from "./components/explore/Explore";
 import CourseForm from "./components/courses/CourseForm";
+import MyCourses from "./components/myCourses/MyCourses";
 import Footer from "./components/layout/footer/Footer";
 import { CssBaseline } from "@material-ui/core";
 
@@ -38,6 +39,7 @@ function App() {
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
               <Route path="/explore" exact component={Explore} />
               <PrivateRoute path="/addcourse" exact component={CourseForm} />
+              <PrivateRoute path="/mycourses" exact component={MyCourses} />
             </Switch>
             <Footer />
           </Router>

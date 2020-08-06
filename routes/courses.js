@@ -11,7 +11,24 @@ const Course = require("../models/Course");
 // @access  Public
 router.get("/", async (req, res) => {
   try {
-    const courses = await Course.find();
+    const courses = await Course.find().sort({
+      date: -1,
+    });
+    res.json(courses);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route  GET /api/courses/created
+// @description  get user's created courses
+// @access  Private
+router.get("/created", auth, async (req, res) => {
+  try {
+    const courses = await Course.find({ user: req.user.id }).sort({
+      date: -1,
+    });
     res.json(courses);
   } catch (error) {
     console.error(error.message);

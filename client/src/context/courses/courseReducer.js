@@ -4,6 +4,7 @@ import {
   UPDATE_COURSE,
   DELETE_COURSE,
   COURSE_ERROR,
+  CLEAR_COURSE,
 } from "../../types";
 
 export default (state, action) => {

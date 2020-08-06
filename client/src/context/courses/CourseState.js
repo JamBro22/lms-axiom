@@ -34,8 +34,14 @@ const CourseState = (props) => {
   };
 
   // get user's created courses
-  const getCreatedCourses = () => {
-    console.log("created courses");
+  const getCreatedCourses = async () => {
+    try {
+      const res = await axios.get("/api/courses/created");
+
+      dispatch({ type: GET_COURSES, payload: res.data });
+    } catch (error) {
+      dispatch({ type: COURSE_ERROR, payload: error.response.msg });
+    }
   };
 
   //   add course

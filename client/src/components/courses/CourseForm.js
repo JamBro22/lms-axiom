@@ -1,8 +1,12 @@
 import React, { useEffect, useContext, useState } from "react";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
+import AlertContext from "../../context/alerts/alertContext";
 
 const CourseForm = () => {
+  const alertContext = useContext(AlertContext);
+  const { setAlert } = alertContext;
+
   const authContext = useContext(AuthContext);
 
   const { loadUser, token, logout } = authContext;
@@ -35,6 +39,7 @@ const CourseForm = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     addCourse(course);
+    setAlert("Course added", "success");
     setCourse({
       image: "",
       title: "",
@@ -44,7 +49,7 @@ const CourseForm = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <h2>Add Course</h2>
       <label htmlFor="image">Thumbnail</label>
       <br />

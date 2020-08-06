@@ -3,6 +3,7 @@ import {
   ADD_COURSE,
   UPDATE_COURSE,
   DELETE_COURSE,
+  COURSE_ERROR,
 } from "../../types";
 
 export default (state, action) => {
@@ -18,6 +19,11 @@ export default (state, action) => {
         ...state,
         courses: [action.payload, ...state.courses],
         loading: false,
+      };
+    case COURSE_ERROR:
+      return {
+        ...state,
+        error: action.payload,
       };
     default:
       return state;

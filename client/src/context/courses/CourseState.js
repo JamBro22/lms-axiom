@@ -7,6 +7,7 @@ import {
   ADD_COURSE,
   DELETE_COURSE,
   UPDATE_COURSE,
+  COURSE_ERROR,
 } from "../../types";
 
 const CourseState = (props) => {
@@ -23,7 +24,7 @@ const CourseState = (props) => {
 
       dispatch({ type: GET_COURSES, payload: res.data });
     } catch (error) {
-      console.error(error.msg);
+      dispatch({ type: COURSE_ERROR, payload: error.response.msg });
     }
   };
 
@@ -48,8 +49,7 @@ const CourseState = (props) => {
       const res = await axios.post("/api/courses", course, config);
       dispatch({ type: ADD_COURSE, payload: res.data });
     } catch (error) {
-      // dispatch({ type: CONTACT_ERROR, payload: err.response.msg });
-      console.error(error.msg);
+      dispatch({ type: COURSE_ERROR, payload: error.response });
     }
   };
 

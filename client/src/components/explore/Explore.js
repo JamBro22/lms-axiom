@@ -13,9 +13,9 @@ const Explore = () => {
   const { courses, getAllCourses } = courseContext;
 
   useEffect(() => {
+    getAllCourses();
     if (token) {
       loadUser();
-      getAllCourses();
     } else {
       logout();
     }

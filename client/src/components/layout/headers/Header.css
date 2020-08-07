@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #f8f8ff;
+    background-color: #4a40b1;
+    top: 0;
+    left: 16%;
+    position: fixed;
+    padding-left: 20px;
+    height: 70px;
+    width: 80%;
+}

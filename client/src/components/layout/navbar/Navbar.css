@@ -1,15 +1,14 @@
-.nav {
+.guest-nav {
   position: sticky;
-  top: 0%;
+  top: 0;
   display: flex;
   height: 70px;
   width: 100%;
   letter-spacing: 0.1rem;
-  z-index: 1;
 }
 
 .logo {
-  margin: 12px 0 5px 50px;
+  margin: auto 50px;
   color: #4a40b1;
   font-size: xx-large;
 }
@@ -18,33 +17,95 @@
   color: #feb800;
 }
 
-.nav-list {
+.guest-nav-list {
   display: flex;
   list-style: none;
-  margin-left: auto;
+  margin: auto 0 auto 70%;
 }
 
-.nav-item {
-  margin: 10px 10px 0 10px;
+.guest-link-item {
+  color: #4a40b1; 
+  font-family: 'Varela Round', sans-serif;
+  margin: auto 5px;
   padding: 5px;
-  width: 70px;
-  text-align: center;
-  text-decoration: none;
-  color: #2f3136;
 }
 
-.nav-item:hover {
-  color: #4a40b1;
+.guest-link-item:hover {
+  color: #4a40b1; 
+  text-decoration: none;
   font-weight: bolder;
 }
 
 .signup {
-  margin-right: 40px;
-  width: 80px;
-  border: 1px solid #706779;
+  border: 1px solid #4a40b1;
   border-radius: 20px;
 }
 
-.signup:hover {
+.signup:hover{
   border: 2px solid #4a40b1;
+}
+
+.auth-nav{
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 16%;
+  height: 100vh;
+  background-color: #cacad6;
+  border: 1px solid #6c66af;
+}
+
+.auth-logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 50px;
+  color: #4a40b1;
+  margin: 5px auto;
+}
+
+.user{
+  color: darkslategray;
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.center{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.transparent{
+  background-color: transparent;
+}
+
+.auth-nav-links{
+  margin: 30px auto;
+  padding-left: 50px;
+}
+
+.auth-link-item{
+  list-style: none;
+  color: #4a40b1;
+}
+
+.auth-link-item:hover {
+  text-decoration: none;
+  color: #231a80;
+}
+
+.list-item {
+  margin-top: 30px;
+  font-size: medium;
+}
+
+.courses {
+  list-style: none;
+  color: darkslategray;
+}
+
+.courses-link {
+  margin-top: 10px;
+  transform: translateX(-12px);
 }

@@ -22,15 +22,20 @@
   },
   "homepage": "https://github.com/JamBro22/lms-axiom#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.1",
     "express": "^4.17.1",
-    "express-validator": "^6.6.0",
+    "express-validator": "^6.6.1",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.9.25"
+    "mongoose": "^5.9.27",
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^4.4.1",
+    "uuid": "^8.3.0"
   },
   "devDependencies": {
-    "concurrently": "^5.2.0",
+    "concurrently": "^5.3.0",
     "nodemon": "^2.0.4"
   }
 }

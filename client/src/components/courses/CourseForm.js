@@ -1,4 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
+import Header from "../layout/headers/Header";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
 import AlertContext from "../../context/alerts/alertContext";
@@ -50,7 +51,7 @@ const CourseForm = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <h2>Add Course</h2>
+      <Header heading="Add Course" />
       <label htmlFor="image">Thumbnail</label>
       <br />
       <input type="text" name="image" value={image} onChange={onChange} />

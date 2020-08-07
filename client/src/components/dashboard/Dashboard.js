@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useEffect } from "react";
+import Header from "../layout/headers/Header";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
 
@@ -17,7 +18,8 @@ const Dashboard = () => {
     } else {
       logout();
     }
-  });
+    // eslint-disable-next-line
+  }, []);
 
   if (loading) {
     return <h1>Loading...</h1>;
@@ -25,14 +27,14 @@ const Dashboard = () => {
     if (courses.length > 0) {
       return (
         <Fragment>
-          <h1>Dashboard</h1>
+          <Header heading="Dashboard" />
           {}
         </Fragment>
       );
     } else {
       return (
         <Fragment>
-          <h1>Dashboard</h1>
+          <Header heading="Dashboard" />
           <p>No courses...</p>
         </Fragment>
       );

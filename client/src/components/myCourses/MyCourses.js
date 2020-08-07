@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useEffect } from "react";
+import Header from "../layout/headers/Header";
 import CourseCard from "../../components/courses/CourseCard";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
@@ -28,7 +29,7 @@ const Explore = () => {
     if (courses.length > 0) {
       return (
         <Fragment>
-          <h1>My Courses</h1>
+          <Header heading="My Courses" />
           <div styling={{ display: "flex" }}>
             {courses.map((course) => (
               <CourseCard course={course} key={course._id} />
@@ -39,7 +40,7 @@ const Explore = () => {
     } else {
       return (
         <Fragment>
-          <h1>My Courses</h1>
+          <Header heading="My Courses" />
           <p>No courses...</p>
         </Fragment>
       );

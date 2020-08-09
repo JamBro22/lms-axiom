@@ -37,7 +37,7 @@ function App() {
               <Route path="/signup" exact component={SignUp} />
               <Route path="/login" exact component={Login} />
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
-              <Route path="/explore" exact component={Explore} />
+              <PrivateRoute path="/explore" exact component={Explore} />
               <PrivateRoute path="/addcourse" exact component={CourseForm} />
               <PrivateRoute path="/mycourses" exact component={MyCourses} />
             </Switch>

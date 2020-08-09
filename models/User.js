@@ -19,7 +19,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  joined: [],
+  saved: [],
   date: {
     type: Date,
     default: Date.now,

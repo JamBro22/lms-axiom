@@ -17,10 +17,6 @@ const CourseSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  students: {
-    type: Number,
-    default: 0,
-  },
   content: {
     type: String,
     required: true,

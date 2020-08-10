@@ -50,6 +50,7 @@ const CourseForm = () => {
   };
 
   return (
+    <div className="auth-box">
     <form onSubmit={onSubmit}>
       <Header heading="Add Course" />
       <label htmlFor="image">Thumbnail</label>
@@ -88,6 +89,7 @@ const CourseForm = () => {
       />
       <input type="submit" value="Submit" onSubmit={onSubmit} />
     </form>
+    </div>
   );
 };
 

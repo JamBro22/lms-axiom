@@ -7,11 +7,11 @@ import CourseContext from "../../context/courses/courseContext";
 const Explore = () => {
   const authContext = useContext(AuthContext);
 
-  const { loadUser, token, logout, loading } = authContext;
+  const { loadUser, token, logout } = authContext;
 
   const courseContext = useContext(CourseContext);
 
-  const { courses, getAllCourses } = courseContext;
+  const { courses, getAllCourses, loading } = courseContext;
 
   useEffect(() => {
     getAllCourses();
@@ -23,29 +23,21 @@ const Explore = () => {
     // eslint-disable-next-line
   }, []);
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  } else {
-    if (courses.length > 0) {
-      return (
-        <Fragment>
-          <Header heading="Explore" />
-          <div styling={{ display: "flex" }}>
-            {courses.map((course) => (
-              <CourseCard course={course} key={course._id} />
-            ))}
-          </div>
-        </Fragment>
-      );
-    } else {
-      return (
-        <Fragment>
-          <Header heading="Explore"/>
-          <p>No courses...</p>
-        </Fragment>
-      );
-    }
-  }
+  return(
+    <Fragment>
+      <Header heading="Explore" />
+      <div className="auth-box">
+        {loading ? <h1>Loading...</h1> : courses.length > 0 ? (
+          courses.map(course => (
+            <CourseCard course={course} button1="Learn More" button2="Save" type="success" key={course._id} />
+          ))
+        ) : (
+          <h3>No courses...</h3>
+        )}
+      </div>
+    </Fragment>
+  );
+  
 };
 
 export default Explore;

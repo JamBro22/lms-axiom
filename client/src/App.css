@@ -54,3 +54,14 @@
   margin: 10px;
   border: 1px solid #706779;
 }
+
+.auth-box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  top: 70px;
+  left: 16%;
+  background-color: darkviolet;
+  width: 84%;
+}

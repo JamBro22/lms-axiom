@@ -13,6 +13,7 @@ import {
 const CourseState = (props) => {
   const initialState = {
     courses: [],
+    loading: true,
   };
 
   const [state, dispatch] = useReducer(courseReducer, initialState);
@@ -81,6 +82,7 @@ const CourseState = (props) => {
     <CourseContext.Provider
       value={{
         courses: state.courses,
+        loading: state.loading,
         getAllCourses,
         getJoinedCourses,
         getCreatedCourses,

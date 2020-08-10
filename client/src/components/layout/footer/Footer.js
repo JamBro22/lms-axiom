@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Grid } from "@material-ui/core";
 import "./Footer.css";
 import "../../../App.css";
+import AuthContext from "../../../context/auth/authContext";
 
 const Footer = () => {
+const authContext = useContext(AuthContext);
+
+const { isAuthenticated } = authContext;
+
   const links = [
     "Home",
     "Login",
@@ -26,7 +31,7 @@ const Footer = () => {
   ];
   const contact = { phone: "0800 937 836", email: "help@axiom.edu" };
 
-  return (
+  const guestFooter = (
     <Grid container className="grid-container">
       <Grid item md={4} className="links grid-item">
         {links.map((link) => {
@@ -97,6 +102,11 @@ const Footer = () => {
         </ul>
       </Grid>
     </Grid>
+  );
+
+
+  return(
+  isAuthenticated ? null : guestFooter
   );
 };
 

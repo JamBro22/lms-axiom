@@ -9,5 +9,6 @@
     position: fixed;
     padding-left: 20px;
     height: 70px;
-    width: 80%;
+    width: 84%;
+    z-index: 1;
 }

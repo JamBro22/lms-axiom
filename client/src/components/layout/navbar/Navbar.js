@@ -7,7 +7,12 @@ const Navbar = () => {
   const authContext = useContext(AuthContext);
   const { logout, isAuthenticated, user } = authContext;
 
-  // change navbar on authentication and username
+  const icons = [
+    "fab fa-facebook-f",
+    "fab fa-instagram",
+    "fab fa-pinterest-p",
+    "fab fa-youtube",
+  ];
 
   const onLogout = () => {
     logout();
@@ -39,16 +44,19 @@ const Navbar = () => {
         <NavLink to="/Explore" className="auth-link-item">
          <li className="list-item transparent">Explore</li> 
         </NavLink>
-        <li className="list-item courses transparent">My Courses
-            <ul className="transparent">
-              <NavLink to="/mycourses" className="auth-link-item">
-                <li className="transparent courses-link">Created courses</li>
-              </NavLink>
-            </ul>
-        </li>
+        <NavLink to="/mycourses" className="auth-link-item">
+         <li className="list-item transparent">My Courses</li> 
+        </NavLink>
         <NavLink to="/login" onClick={onLogout} className="auth-link-item">
          <li className="list-item transparent">Logout</li> 
         </NavLink>
+        </ul>
+        <ul className="nav-icon-list">
+          {icons.map((icon) => {
+            return <li className="icon-list-item" key={icon}>
+              <i className={`${icon} nav-icon`}/>
+            </li>
+          })}
         </ul>
       </nav>
   )

@@ -4,14 +4,14 @@ import CourseCard from "../../components/courses/CourseCard";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
 
-const Explore = () => {
+const MyCourses = () => {
   const authContext = useContext(AuthContext);
 
   const { loadUser, token, logout } = authContext;
 
   const courseContext = useContext(CourseContext);
 
-  const { courses, getCreatedCourses, loading } = courseContext;
+  const { courses, getCreatedCourses, loading, setCourse, deleteCourse } = courseContext;
 
   useEffect(() => {
     getCreatedCourses();
@@ -30,7 +30,7 @@ const Explore = () => {
         {loading ? <h1>Loading...</h1> : (
           courses.length > 0 ? (
             courses.map(course => (
-              <CourseCard course={course} button1="Edit" button2="Delete" type="danger" key={course._id} />
+              <CourseCard course={course} button1="Edit" button2="Delete" type="danger" click={() => setCourse(course)} click2={() => deleteCourse(course._id) } key={course._id} />
             ))
           ) : (
             <h3>No courses...</h3>
@@ -41,4 +41,4 @@ const Explore = () => {
   )
 };
 
-export default Explore;
+export default MyCourses;

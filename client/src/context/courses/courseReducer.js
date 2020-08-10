@@ -4,7 +4,7 @@ import {
   UPDATE_COURSE,
   DELETE_COURSE,
   COURSE_ERROR,
-  CLEAR_COURSE,
+  SET_COURSE,
 } from "../../types";
 
 export default (state, action) => {
@@ -21,10 +21,27 @@ export default (state, action) => {
         courses: [action.payload, ...state.courses],
         loading: false,
       };
+    case UPDATE_COURSE:
+      return {
+        ...state,
+        courses: state.courses.map((course) => (
+          course._id === action.payload._id ? action.payload : course
+        ))
+      }
+    case DELETE_COURSE:
+      return {
+        ...state,
+        courses: state.courses.filter((course) => course._id !== action.payload)
+      }
     case COURSE_ERROR:
       return {
         ...state,
         error: action.payload,
+      };
+    case SET_COURSE:
+      return {
+        ...state,
+        current: action.payload,
       };
     default:
       return state;

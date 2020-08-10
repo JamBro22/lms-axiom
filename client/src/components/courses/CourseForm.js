@@ -14,7 +14,7 @@ const CourseForm = () => {
 
   const courseContext = useContext(CourseContext);
 
-  const { addCourse } = courseContext;
+  const { current, addCourse } = courseContext;
 
   const [course, setCourse] = useState({
     image: "",
@@ -52,7 +52,7 @@ const CourseForm = () => {
   return (
     <div className="auth-box">
     <form onSubmit={onSubmit}>
-      <Header heading="Add Course" />
+      <Header heading={current ? "Update Course" : "Add Course"} />
       <label htmlFor="image">Thumbnail</label>
       <br />
       <input type="text" name="image" value={image} onChange={onChange} />
@@ -87,7 +87,7 @@ const CourseForm = () => {
         value={content}
         onChange={onChange}
       />
-      <input type="submit" value="Submit" onSubmit={onSubmit} />
+      <button type="submit" onSubmit={onSubmit}>{current ? "Update Course" : "Add Course"}</button>
     </form>
     </div>
   );

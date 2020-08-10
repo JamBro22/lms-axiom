@@ -1,17 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
+import "./CourseCard.css";
 
-const CourseCard = ({ course, button1, button2, type }) => {
+const CourseCard = ({ course, button1, button2, type, click, click2 }) => {
   const { image, title, description, content } = course;
 
   return (
-    <div className="card col-md-4"  style={{ margin: "15px", width: "100px" }}>
+    <div className="card col-md-4 course-card">
       <div>{image}</div>
-      <h3 className="card-title">{title}</h3>
-      <p className="card-text">{description}</p>
+      <h4 className="card-title">{title}</h4>
+      <h5 className="card-text">{description}</h5>
       <p>{content}</p>
-  <buttton type="button" className="btn btn-dark col-5">{button1}</buttton>
-  <button type="button" className={`btn btn-${type} col-5`}>{button2}</button>
+      <button type="button" className="btn btn-dark buttons" onClick={click}>{button1}</button>
+      <button type="button" className={`btn btn-${type} buttons`} onClick={click2}>{button2}</button>
     </div>
   );
 };

@@ -8,12 +8,14 @@ import {
   DELETE_COURSE,
   UPDATE_COURSE,
   COURSE_ERROR,
+  SET_COURSE,
 } from "../../types";
 
 const CourseState = (props) => {
   const initialState = {
     courses: [],
     loading: true,
+    current: null,
   };
 
   const [state, dispatch] = useReducer(courseReducer, initialState);
@@ -61,34 +63,54 @@ const CourseState = (props) => {
   };
 
   // update course
-  const updateCourse = () => {
-    console.log("update courses");
+  const updateCourse = async (course) => {
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      try {
+        const res = await axios.put(`/api/courses/${course._id}`, course, config);
+        dispatch({ type: UPDATE_COURSE, payload: res.data });
+      } catch (error) {
+        dispatch({ type: COURSE_ERROR, payload: error.response });
+      }
   };
 
   //  delete course
-  const deleteCourse = () => {
-    console.log("delete courses");
+  const deleteCourse = async (id) => {
+    try {
+      await axios.delete(`/api/courses/${id}`);
+      dispatch({
+        type: DELETE_COURSE,
+        payload: id,
+      })
+    } catch (error) {
+      dispatch({ type: COURSE_ERROR, payload: error.response });
+    }
   };
 
   //  set current course
-
-  //  clear current course
-
-  //  filter courses
-
-  // clear filter
+  const setCourse = (course) => {
+      dispatch({
+        type: SET_COURSE,
+        payload: course,
+      });
+  };
 
   return (
     <CourseContext.Provider
       value={{
         courses: state.courses,
         loading: state.loading,
+        current: state.current,
         getAllCourses,
         getJoinedCourses,
         getCreatedCourses,
         addCourse,
         updateCourse,
         deleteCourse,
+        setCourse,
       }}
     >
       {props.children}

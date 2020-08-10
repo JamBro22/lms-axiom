@@ -38,26 +38,7 @@ const Dashboard = () => {
       </div>
     </Fragment>
   )
-
-  // if (loading) {
-  //   return <h1>Loading...</h1>;
-  // } else {
-  //   if (courses.length > 0) {
-  //     return (
-  //       <Fragment>
-  //         <Header heading="Dashboard" />
-  //         {}
-  //       </Fragment>
-  //     );
-  //   } else {
-  //     return (
-  //       <Fragment>
-  //         <Header heading="Dashboard" />
-  //         <p>No courses...</p>
-  //       </Fragment>
-  //     );
-  //   }
-  // }
+  
 };
 
 export default Dashboard;

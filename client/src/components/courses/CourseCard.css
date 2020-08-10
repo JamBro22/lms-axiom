@@ -1,0 +1,11 @@
+.course-card {
+    /* margin: "15px", width: "100px", height: "500px" */
+    margin: 30px;
+    width: 100px;
+    height: 500px;
+    box-shadow: 6px 7px 16px 0px rgba(0,0,0,0.75);
+}
+
+.buttons {
+ margin: 5px;   
+}

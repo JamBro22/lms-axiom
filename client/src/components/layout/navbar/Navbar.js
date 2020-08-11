@@ -24,46 +24,54 @@ const Navbar = () => {
         Axiom<span className="dot">.</span>
       </h1>
       <ul className="guest-nav-list">
-        <NavLink to="/login" className="guest-link-item"><li>Login</li></NavLink>
-        <NavLink to="/signup" className="guest-link-item signup"><li>Sign Up</li></NavLink>
+        <NavLink to="/login" className="guest-link-item">
+          <li>Login</li>
+        </NavLink>
+        <NavLink to="/signup" className="guest-link-item signup">
+          <li>Sign Up</li>
+        </NavLink>
       </ul>
     </nav>
-  )
+  );
 
   const authLinks = (
-      <nav className="auth-nav">
-        <h1 className="londrina auth-logo transparent">Axiom<span className="dot transparent">.</span></h1>
-  <h5 className="user center transparent">{user && user.firstName}{" "}{user && user.lastName}</h5>
-        <ul className="auth-nav-links transparent">
+    <nav className="auth-nav">
+      <h1 className="londrina auth-logo transparent">
+        Axiom<span className="dot transparent">.</span>
+      </h1>
+      <h5 className="user center transparent">
+        {user && user.firstName} {user && user.lastName}
+      </h5>
+      <ul className="auth-nav-links transparent">
         <NavLink to="/" className="auth-link-item">
-         <li className="list-item transparent">Home</li> 
+          <li className="list-item transparent">Home</li>
         </NavLink>
         <NavLink to="/Dashboard" className="auth-link-item">
-         <li className="list-item transparent">Dashboard</li> 
+          <li className="list-item transparent">Dashboard</li>
         </NavLink>
         <NavLink to="/Explore" className="auth-link-item">
-         <li className="list-item transparent">Explore</li> 
+          <li className="list-item transparent">Explore</li>
         </NavLink>
         <NavLink to="/mycourses" className="auth-link-item">
-         <li className="list-item transparent">My Courses</li> 
+          <li className="list-item transparent">My Courses</li>
         </NavLink>
         <NavLink to="/login" onClick={onLogout} className="auth-link-item">
-         <li className="list-item transparent">Logout</li> 
+          <li className="list-item transparent">Logout</li>
         </NavLink>
-        </ul>
-        <ul className="nav-icon-list">
-          {icons.map((icon) => {
-            return <li className="icon-list-item" key={icon}>
-              <i className={`${icon} nav-icon`}/>
+      </ul>
+      <ul className="nav-icon-list">
+        {icons.map((icon) => {
+          return (
+            <li className="icon-list-item" key={icon}>
+              <i className={`${icon} nav-icon`} />
             </li>
-          })}
-        </ul>
-      </nav>
-  )
-
-  return (
-    isAuthenticated ? authLinks : guestLinks 
+          );
+        })}
+      </ul>
+    </nav>
   );
+
+  return isAuthenticated ? authLinks : guestLinks;
 };
 
 export default Navbar;

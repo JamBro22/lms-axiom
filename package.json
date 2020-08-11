@@ -30,6 +30,7 @@
     "express-validator": "^6.6.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.27",
+    "react-lines-ellipsis": "^0.14.1",
     "react-router-dom": "^5.2.0",
     "react-transition-group": "^4.4.1",
     "uuid": "^8.3.0"

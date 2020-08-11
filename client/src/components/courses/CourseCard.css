@@ -1,11 +1,31 @@
 .course-card {
-    /* margin: "15px", width: "100px", height: "500px" */
-    margin: 30px;
-    width: 100px;
-    height: 500px;
-    box-shadow: 6px 7px 16px 0px rgba(0,0,0,0.75);
+  padding-top: 10px;
+  margin: 30px;
+  width: 100px;
+  height: 500px;
+  box-shadow: 6px 7px 16px 0px rgba(134, 133, 133, 0.75);
 }
 
 .buttons {
- margin: 5px;   
+  margin: 5px;
+}
+
+.card-image {
+  position: relative;
+  background-color: yellow;
+  height: 30%;
+  width: 100;
+  margin-bottom: 5px;
+}
+
+.title {
+  background: transparent;
+  color: #4a40b1;
+}
+
+.description {
+  position: relative;
+  background: transparent;
+  height: 40%;
+  padding: 5px;
 }

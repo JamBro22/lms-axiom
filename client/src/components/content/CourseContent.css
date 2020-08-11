@@ -1,0 +1,18 @@
+.content-image {
+  position: relative;
+  height: 50vh;
+  width: 50%;
+  background-color: turquoise;
+}
+
+.content-description {
+  position: relative;
+  padding: 50px;
+  width: 100%;
+}
+
+.course-content {
+  position: relative;
+  padding: 50px;
+  width: 100%;
+}

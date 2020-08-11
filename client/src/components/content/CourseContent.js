@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect } from "react";
 import Header from "../layout/headers/Header";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
+import "./CourseContent.css";
 
 const CourseContent = () => {
   const authContext = useContext(AuthContext);
@@ -21,9 +22,15 @@ const CourseContent = () => {
     <Fragment>
       <Header heading={current && current.title} />
       <div className="auth-box">
-        <div>{current && current.image}</div>
-        <p>{current && current.description}</p>
-        <p>{current && current.content}</p>
+        <div className="content-image">{current && current.image}</div>
+        <div className="content-description">
+          <h4>Description</h4>
+          {current && current.description}
+        </div>
+        <div className="course-content">
+          <h4>Content</h4>
+          {current && current.content}
+        </div>
       </div>
     </Fragment>
   );

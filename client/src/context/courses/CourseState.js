@@ -9,6 +9,7 @@ import {
   UPDATE_COURSE,
   COURSE_ERROR,
   SET_COURSE,
+  CLEAR_CURRENT,
 } from "../../types";
 
 const CourseState = (props) => {
@@ -64,17 +65,17 @@ const CourseState = (props) => {
 
   // update course
   const updateCourse = async (course) => {
-      const config = {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
-      try {
-        const res = await axios.put(`/api/courses/${course._id}`, course, config);
-        dispatch({ type: UPDATE_COURSE, payload: res.data });
-      } catch (error) {
-        dispatch({ type: COURSE_ERROR, payload: error.response });
-      }
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      const res = await axios.put(`/api/courses/${course._id}`, course, config);
+      dispatch({ type: UPDATE_COURSE, payload: res.data });
+    } catch (error) {
+      dispatch({ type: COURSE_ERROR, payload: error.response });
+    }
   };
 
   //  delete course
@@ -84,7 +85,7 @@ const CourseState = (props) => {
       dispatch({
         type: DELETE_COURSE,
         payload: id,
-      })
+      });
     } catch (error) {
       dispatch({ type: COURSE_ERROR, payload: error.response });
     }
@@ -92,10 +93,17 @@ const CourseState = (props) => {
 
   //  set current course
   const setCourse = (course) => {
-      dispatch({
-        type: SET_COURSE,
-        payload: course,
-      });
+    dispatch({
+      type: SET_COURSE,
+      payload: course,
+    });
+  };
+
+  // clear current state
+  const clearCurrent = () => {
+    dispatch({
+      type: CLEAR_CURRENT,
+    });
   };
 
   return (
@@ -111,6 +119,7 @@ const CourseState = (props) => {
         updateCourse,
         deleteCourse,
         setCourse,
+        clearCurrent,
       }}
     >
       {props.children}

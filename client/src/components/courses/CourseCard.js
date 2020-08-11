@@ -1,9 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import LinesEllipsis from "react-lines-ellipsis";
+import { Link } from "react-router-dom";
 import "./CourseCard.css";
 
-const CourseCard = ({ course, button1, button2, type, click, click2 }) => {
+const CourseCard = ({
+  course,
+  button1,
+  button2,
+  type,
+  click,
+  click2,
+  link,
+}) => {
   const { image, title, description } = course;
 
   return (
@@ -18,9 +27,11 @@ const CourseCard = ({ course, button1, button2, type, click, click2 }) => {
         basedOn="letters"
         className="card-text description"
       />
-      <button type="button" className="btn btn-dark buttons" onClick={click}>
-        {button1}
-      </button>
+      <Link to={link} className="link-btn">
+        <button type="button" className="btn btn-dark buttons" onClick={click}>
+          {button1}
+        </button>
+      </Link>
       <button
         type="button"
         className={`btn btn-${type} buttons`}

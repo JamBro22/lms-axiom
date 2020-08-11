@@ -31,7 +31,12 @@ const CourseForm = () => {
     } else {
       logout();
     }
-  }, [token, loadUser, logout]);
+
+    if (current) {
+      setCourse(current);
+    }
+    // eslint-disable-next-line
+  }, [current]);
 
   const onChange = (e) => {
     setCourse({ ...course, [e.target.name]: e.target.value });
@@ -51,44 +56,46 @@ const CourseForm = () => {
 
   return (
     <div className="auth-box">
-    <form onSubmit={onSubmit}>
-      <Header heading={current ? "Update Course" : "Add Course"} />
-      <label htmlFor="image">Thumbnail</label>
-      <br />
-      <input type="text" name="image" value={image} onChange={onChange} />
-      <br />
-      <label htmlFor="title">Title:</label>
-      <br />
-      <input
-        type="text"
-        name="title"
-        value={title}
-        placeholder="Add a title..."
-        onChange={onChange}
-      />
-      <br />
-      <label htmlFor="description">Description:</label>
-      <br />
-      <textarea
-        name="description"
-        cols="30"
-        rows="10"
-        placeholder="Add a description..."
-        value={description}
-        onChange={onChange}
-      />
-      <br />
-      <label htmlFor="content">Content:</label>
-      <br />
-      <input
-        type="text"
-        name="content"
-        placeholder="Enter some content"
-        value={content}
-        onChange={onChange}
-      />
-      <button type="submit" onSubmit={onSubmit}>{current ? "Update Course" : "Add Course"}</button>
-    </form>
+      <form onSubmit={onSubmit}>
+        <Header heading={current ? "Update Course" : "Add Course"} />
+        <label htmlFor="image">Thumbnail</label>
+        <br />
+        <input type="text" name="image" value={image} onChange={onChange} />
+        <br />
+        <label htmlFor="title">Title:</label>
+        <br />
+        <input
+          type="text"
+          name="title"
+          value={title}
+          placeholder="Add a title..."
+          onChange={onChange}
+        />
+        <br />
+        <label htmlFor="description">Description:</label>
+        <br />
+        <textarea
+          name="description"
+          cols="30"
+          rows="10"
+          placeholder="Add a description..."
+          value={description}
+          onChange={onChange}
+        />
+        <br />
+        <label htmlFor="content">Content:</label>
+        <br />
+        <input
+          type="text"
+          name="content"
+          placeholder="Enter some content"
+          value={content}
+          onChange={onChange}
+        />
+        <button type="submit" onSubmit={onSubmit}>
+          {current ? "Update Course" : "Add Course"}
+        </button>
+      </form>
     </div>
   );
 };

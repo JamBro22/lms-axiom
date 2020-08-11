@@ -5,6 +5,7 @@ import {
   DELETE_COURSE,
   COURSE_ERROR,
   SET_COURSE,
+  CLEAR_CURRENT,
 } from "../../types";
 
 export default (state, action) => {
@@ -24,15 +25,17 @@ export default (state, action) => {
     case UPDATE_COURSE:
       return {
         ...state,
-        courses: state.courses.map((course) => (
+        courses: state.courses.map((course) =>
           course._id === action.payload._id ? action.payload : course
-        ))
-      }
+        ),
+      };
     case DELETE_COURSE:
       return {
         ...state,
-        courses: state.courses.filter((course) => course._id !== action.payload)
-      }
+        courses: state.courses.filter(
+          (course) => course._id !== action.payload
+        ),
+      };
     case COURSE_ERROR:
       return {
         ...state,
@@ -42,6 +45,11 @@ export default (state, action) => {
       return {
         ...state,
         current: action.payload,
+      };
+    case CLEAR_CURRENT:
+      return {
+        ...state,
+        current: null,
       };
     default:
       return state;

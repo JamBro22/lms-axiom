@@ -18,6 +18,7 @@ const MyCourses = () => {
     loading,
     setCourse,
     deleteCourse,
+    clearCurrent,
   } = courseContext;
 
   useEffect(() => {
@@ -30,12 +31,20 @@ const MyCourses = () => {
     // eslint-disable-next-line
   }, []);
 
+  const clear = () => {
+    clearCurrent();
+  };
+
   return (
     <Fragment>
       <Header heading="My Courses" />
       <div className="auth-box">
         <Link to="/addcourse" className="add-btn-link">
-          <button type="button" className="btn btn-success add-btn">
+          <button
+            type="button"
+            className="btn btn-success add-btn"
+            onClick={clear}
+          >
             Add Course
           </button>
         </Link>
@@ -48,8 +57,11 @@ const MyCourses = () => {
               button1="Edit"
               button2="Delete"
               type="danger"
-              click={() => setCourse(course)}
+              click={() => {
+                setCourse(course);
+              }}
               click2={() => deleteCourse(course._id)}
+              link="/addcourse"
               key={course._id}
             />
           ))

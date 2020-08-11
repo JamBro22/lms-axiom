@@ -11,7 +11,7 @@ const Explore = () => {
 
   const courseContext = useContext(CourseContext);
 
-  const { courses, getAllCourses, loading } = courseContext;
+  const { courses, getAllCourses, loading, setCourse } = courseContext;
 
   useEffect(() => {
     getAllCourses();
@@ -23,13 +23,25 @@ const Explore = () => {
     // eslint-disable-next-line
   }, []);
 
-  return(
+  return (
     <Fragment>
       <Header heading="Explore" />
       <div className="auth-box">
-        {loading ? <h1>Loading...</h1> : courses.length > 0 ? (
-          courses.map(course => (
-            <CourseCard course={course} button1="Learn More" button2="Save" type="success" key={course._id} />
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : courses.length > 0 ? (
+          courses.map((course) => (
+            <CourseCard
+              course={course}
+              button1="Learn More"
+              button2="Save"
+              type="success"
+              click={() => {
+                setCourse(course);
+              }}
+              link="/coursecontent"
+              key={course._id}
+            />
           ))
         ) : (
           <h3>No courses...</h3>
@@ -37,7 +49,6 @@ const Explore = () => {
       </div>
     </Fragment>
   );
-  
 };
 
 export default Explore;

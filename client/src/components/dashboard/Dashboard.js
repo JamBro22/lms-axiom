@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   const courseContext = useContext(CourseContext);
 
-  const { courses, loading } = courseContext;
+  const { courses, loading, setCourse } = courseContext;
 
   useEffect(() => {
     if (token) {
@@ -22,23 +22,32 @@ const Dashboard = () => {
     // eslint-disable-next-line
   }, []);
 
-  return(
+  return (
     <Fragment>
       <Header heading="Dashboard" />
       <div className="auth-box">
-        {loading ? <h1>Loading...</h1> : (
-          courses.length > 0 ? (
-            courses.map((course) => (
-              <CourseCard course={course} button1="View Content" button2="Remove" type="danger" key={course._id} />
-            ))
-          ) : (
-            <h3>No courses</h3>
-          )
+        {loading ? (
+          <h1>Loading...</h1>
+        ) : courses.length > 0 ? (
+          courses.map((course) => (
+            <CourseCard
+              course={course}
+              button1="View Content"
+              button2="Remove"
+              type="danger"
+              click={() => {
+                setCourse(course);
+              }}
+              link="/coursecontent"
+              key={course._id}
+            />
+          ))
+        ) : (
+          <h3>No courses</h3>
         )}
       </div>
     </Fragment>
-  )
-  
+  );
 };
 
 export default Dashboard;

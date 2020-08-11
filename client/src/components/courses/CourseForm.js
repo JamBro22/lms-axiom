@@ -14,7 +14,7 @@ const CourseForm = () => {
 
   const courseContext = useContext(CourseContext);
 
-  const { current, addCourse } = courseContext;
+  const { current, addCourse, updateCourse } = courseContext;
 
   const [course, setCourse] = useState({
     image: "",
@@ -36,7 +36,7 @@ const CourseForm = () => {
       setCourse(current);
     }
     // eslint-disable-next-line
-  }, [current]);
+  }, []);
 
   const onChange = (e) => {
     setCourse({ ...course, [e.target.name]: e.target.value });
@@ -44,8 +44,14 @@ const CourseForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    addCourse(course);
-    setAlert("Course added", "success");
+    if (current) {
+      updateCourse(course);
+      setAlert("Course updated", "success");
+    } else {
+      addCourse(course);
+      setAlert("Course added", "success");
+    }
+
     setCourse({
       image: "",
       title: "",

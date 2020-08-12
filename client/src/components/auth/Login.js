@@ -42,26 +42,32 @@ const Login = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <h1 className="titillium heading">Login</h1>
-        <label htmlFor="email">Email:</label>
+    <div className="form-background">
+      <form onSubmit={onSubmit} className="form-box">
+        <h1 className="titillium heading form-head">Login</h1>
+        <label htmlFor="email" className="form-label">
+          Email:
+        </label>
         <input
           type="email"
           name="email"
           value={email}
           onChange={onChange}
+          className="form-input"
           required
         />
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password" className="form-label">
+          Password:
+        </label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={onChange}
+          className="form-input"
           required
         />
-        <input type="submit" value="Login" />
+        <input type="submit" value="Login" className="form-btn" />
       </form>
     </div>
   );

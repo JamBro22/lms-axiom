@@ -51,52 +51,67 @@ const SignUp = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={onSubmit}>
-        <h1 className="titillium heading">Sign Up</h1>
-        <label htmlFor="firstName">First Name:</label>
+    <div className="form-background">
+      <form onSubmit={onSubmit} className="form-box">
+        <h1 className="titillium heading form-head">Sign Up</h1>
+        <label htmlFor="firstName" className="form-label">
+          First Name:
+        </label>
         <input
           type="text"
           name="firstName"
           value={firstName}
           onChange={onChange}
+          className="form-input"
           required
         />
-        <label htmlFor="lastName">Last Name:</label>
+        <label htmlFor="lastName" className="form-label">
+          Last Name:
+        </label>
         <input
           type="text"
           name="lastName"
           value={lastName}
           onChange={onChange}
+          className="form-input"
           required
         />
-        <label htmlFor="email">Email:</label>
+        <label htmlFor="email" className="form-label">
+          Email:
+        </label>
         <input
           type="email"
           name="email"
           value={email}
           onChange={onChange}
+          className="form-input"
           required
         />
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password" className="form-label">
+          Password:
+        </label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={onChange}
+          className="form-input"
           required
           minLength={6}
         />
-        <label htmlFor="password2">Confirm Password:</label>
+        <label htmlFor="password2" className="form-label">
+          Confirm Password:
+        </label>
         <input
           type="password"
           name="password2"
           value={password2}
           onChange={onChange}
+          className="form-input"
           required
           minLength={6}
         />
-        <input type="submit" value="Sign Up" />
+        <input type="submit" value="Sign Up" className="form-btn" />
       </form>
     </div>
   );

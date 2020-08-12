@@ -83,3 +83,63 @@
   width: 100%;
   padding-left: 10px;
 }
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: auto;
+  width: 50%;
+  margin: 50px auto;
+  padding: 50px;
+  background-color: rgba(248, 248, 255, 0.65);
+  border-radius: 20px;
+}
+
+.form-background {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(rgb(173, 216, 230, 0.3), rgb(173, 216, 230, 0.3)),
+    url("./img/drawings.jpg");
+  background-size: cover;
+}
+
+.form-head {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+}
+
+.form-label {
+  position: relative;
+  width: 80%;
+  background-color: transparent;
+  color: #4a40b1;
+  font-size: medium;
+  font-weight: 555;
+  margin-top: 10px;
+}
+
+.form-input {
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background-color: rgb(74, 64, 177, 0.3);
+  padding-left: 10px;
+}
+
+.form-btn {
+  height: 30px;
+  background: transparent;
+  border: 2px solid #4a40b1;
+  background-color: #4a40b1;
+  color: #f8f8ff;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.form-btn:hover {
+  background: transparent;
+  color: #4a40b1;
+}

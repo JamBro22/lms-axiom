@@ -15,3 +15,4 @@ export const UPDATE_COURSE = "UPDATE_COURSE";
 export const COURSE_ERROR = "COURSE_ERROR";
 export const SET_COURSE = "SET_COURSE";
 export const CLEAR_CURRENT = "CLEAR_CURRENT";
+export const SAVE_COURSE = "SAVE_COURSE";

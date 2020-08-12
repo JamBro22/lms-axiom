@@ -12,6 +12,8 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERRORS,
+  SAVE_COURSE,
+  COURSE_ERROR,
 } from "../../types";
 
 const AuthState = (props) => {
@@ -21,6 +23,7 @@ const AuthState = (props) => {
     loading: true,
     error: null,
     user: null,
+    saved: [],
   };
 
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -102,6 +105,21 @@ const AuthState = (props) => {
     });
   };
 
+  // save course
+  const saveCourse = async (user) => {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    try {
+      const res = await axios.put(`/api/users/${user._id}`, user, config);
+      dispatch({ type: SAVE_COURSE, payload: res.data });
+    } catch (error) {
+      dispatch({ type: COURSE_ERROR, payload: error.response });
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -110,11 +128,13 @@ const AuthState = (props) => {
         loading: state.loading,
         user: state.user,
         error: state.error,
+        saved: state.save,
         register,
         loadUser,
         login,
         logout,
         clearErrors,
+        saveCourse,
       }}
     >
       {props.children}

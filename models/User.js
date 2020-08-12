@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const courseSchema = (require = "CourseSchema");
 
 const UserSchema = mongoose.Schema({
   firstName: {
@@ -19,7 +18,7 @@ const UserSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  saved: [],
+  saved: [{}],
   date: {
     type: Date,
     default: Date.now,

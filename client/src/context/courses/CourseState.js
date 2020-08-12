@@ -32,11 +32,6 @@ const CourseState = (props) => {
     }
   };
 
-  // get user's joined courses
-  const getJoinedCourses = () => {
-    console.log("joined courses");
-  };
-
   // get user's created courses
   const getCreatedCourses = async () => {
     try {
@@ -113,7 +108,6 @@ const CourseState = (props) => {
         loading: state.loading,
         current: state.current,
         getAllCourses,
-        getJoinedCourses,
         getCreatedCourses,
         addCourse,
         updateCourse,

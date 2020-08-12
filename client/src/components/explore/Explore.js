@@ -7,7 +7,7 @@ import CourseContext from "../../context/courses/courseContext";
 const Explore = () => {
   const authContext = useContext(AuthContext);
 
-  const { loadUser, token, logout } = authContext;
+  const { loadUser, token, logout, saveCourse } = authContext;
 
   const courseContext = useContext(CourseContext);
 
@@ -38,6 +38,9 @@ const Explore = () => {
               type="success"
               click={() => {
                 setCourse(course);
+              }}
+              click2={() => {
+                saveCourse(course);
               }}
               link="/coursecontent"
               key={course._id}

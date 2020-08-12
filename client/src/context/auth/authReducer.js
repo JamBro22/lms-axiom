@@ -7,6 +7,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
   CLEAR_ERRORS,
+  SAVE_COURSE,
 } from "../../types";
 
 export default (state, action) => {
@@ -44,6 +45,10 @@ export default (state, action) => {
       return {
         ...state,
         error: null,
+      };
+    case SAVE_COURSE:
+      return {
+        ...state,
       };
     default:
       return state;

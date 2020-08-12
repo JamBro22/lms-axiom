@@ -2,16 +2,21 @@ import React, { Fragment, useContext, useEffect } from "react";
 import Header from "../layout/headers/Header";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
+import AlertContext from "../../context/alerts/alertContext";
 import CourseCard from "../courses/CourseCard";
 
 const Dashboard = () => {
   const authContext = useContext(AuthContext);
 
-  const { loadUser, token, logout, user, loading } = authContext;
+  const { loadUser, token, logout, user, loading, saveCourse } = authContext;
 
   const courseContext = useContext(CourseContext);
 
   const { setCourse } = courseContext;
+
+  const alertContext = useContext(AlertContext);
+
+  const { setAlert } = alertContext;
 
   useEffect(() => {
     if (token) {
@@ -38,6 +43,13 @@ const Dashboard = () => {
               type="danger"
               click={() => {
                 setCourse(course);
+              }}
+              click2={() => {
+                user.saved = user.saved.filter(
+                  (saved) => saved._id !== course._id
+                );
+                saveCourse(user);
+                setAlert("Course removed", "danger");
               }}
               link="/coursecontent"
               key={course._id}

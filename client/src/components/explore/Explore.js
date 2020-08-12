@@ -32,6 +32,7 @@ const Explore = () => {
     <Fragment>
       <Header heading="Explore" />
       <div className="auth-box">
+        <h5 className="box-head">All Courses...</h5>
         {loading ? (
           <h1>Loading...</h1>
         ) : courses.length > 0 ? (
@@ -45,9 +46,9 @@ const Explore = () => {
                 setCourse(course);
               }}
               click2={() => {
+                setAlert("Course saved", "success");
                 user.saved.push(course);
                 saveCourse(user);
-                setAlert("Course saved", "success");
               }}
               link="/coursecontent"
               key={course._id}

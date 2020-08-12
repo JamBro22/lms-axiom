@@ -7,6 +7,10 @@
   letter-spacing: 0.1rem;
 }
 
+ul {
+  padding: 0;
+}
+
 .logo {
   margin: auto 50px;
   color: #4a40b1;

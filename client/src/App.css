@@ -20,13 +20,6 @@
 
 .heading {
   color: #4a40b1;
-  margin: 0;
-}
-
-.paragraph {
-  font-size: 0.9rem;
-  color: #706779;
-  margin: 20px;
 }
 
 .orange-btn {
@@ -36,18 +29,21 @@
   background-color: #f29000;
   color: #f8f8ff;
   font-weight: bold;
+  font-size: medium;
   font-family: "Titillium Web", sans-serif;
   text-align: center;
   height: 40px;
   width: 100px;
-  margin: 0 auto;
+  margin: 30px auto;
   border-radius: 20px;
+  border: none;
 }
 
 .orange-btn:hover {
   background-color: #f8f8ff;
   color: #4a40b1;
   border: 2px solid #f29000;
+  text-decoration: none;
 }
 
 .input {

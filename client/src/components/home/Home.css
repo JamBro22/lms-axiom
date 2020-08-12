@@ -1,0 +1,33 @@
+.home-background {
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  padding-top: 60px;
+  background-size: cover;
+  background-image: linear-gradient(
+      rgb(204, 207, 240, 0.3),
+      rgb(204, 207, 240, 0.3)
+    ),
+    url("../../img/drawing.jpg");
+  margin: 0;
+}
+
+.home-box {
+  background-color: rgba(248, 248, 255, 0.9);
+  padding: 30px;
+  width: 60%;
+  height: 50vh;
+  margin: 0 auto;
+}
+
+.home-head {
+  margin-top: 20px;
+  background: transparent;
+}
+
+.paragraph {
+  font-size: medium;
+  color: #706779;
+  background: transparent;
+  margin-top: 20px;
+}

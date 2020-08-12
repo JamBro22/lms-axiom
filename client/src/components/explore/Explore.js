@@ -3,15 +3,20 @@ import Header from "../layout/headers/Header";
 import CourseCard from "../../components/courses/CourseCard";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
+import AlertContext from "../../context/alerts/alertContext";
 
 const Explore = () => {
   const authContext = useContext(AuthContext);
 
-  const { loadUser, token, logout, saveCourse } = authContext;
+  const { loadUser, token, logout, saveCourse, user } = authContext;
 
   const courseContext = useContext(CourseContext);
 
   const { courses, getAllCourses, loading, setCourse } = courseContext;
+
+  const alertContext = useContext(AlertContext);
+
+  const { setAlert } = alertContext;
 
   useEffect(() => {
     getAllCourses();
@@ -40,7 +45,9 @@ const Explore = () => {
                 setCourse(course);
               }}
               click2={() => {
-                saveCourse(course);
+                user.saved.push(course);
+                saveCourse(user);
+                setAlert("Course saved", "success");
               }}
               link="/coursecontent"
               key={course._id}

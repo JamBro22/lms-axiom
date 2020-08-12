@@ -48,6 +48,7 @@ const MyCourses = () => {
             Add Course
           </button>
         </Link>
+        <h5 className="box-head">Created Courses...</h5>
         {loading ? (
           <h1>Loading...</h1>
         ) : courses.length > 0 ? (

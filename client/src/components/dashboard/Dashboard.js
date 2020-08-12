@@ -7,11 +7,11 @@ import CourseCard from "../courses/CourseCard";
 const Dashboard = () => {
   const authContext = useContext(AuthContext);
 
-  const { loadUser, token, logout } = authContext;
+  const { loadUser, token, logout, user, loading } = authContext;
 
   const courseContext = useContext(CourseContext);
 
-  const { courses, loading, setCourse } = courseContext;
+  const { setCourse } = courseContext;
 
   useEffect(() => {
     if (token) {
@@ -26,10 +26,11 @@ const Dashboard = () => {
     <Fragment>
       <Header heading="Dashboard" />
       <div className="auth-box">
+        <h5 className="box-head">Saved Courses...</h5>
         {loading ? (
           <h1>Loading...</h1>
-        ) : courses.length > 0 ? (
-          courses.map((course) => (
+        ) : user && user.saved.length > 0 ? (
+          user.saved.map((course) => (
             <CourseCard
               course={course}
               button1="View Content"

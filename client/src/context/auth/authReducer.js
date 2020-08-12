@@ -49,6 +49,9 @@ export default (state, action) => {
     case SAVE_COURSE:
       return {
         ...state,
+        user:
+          state.user._id === action.payload._id ? action.payload : state.user,
+        saved: [...state.user.saved],
       };
     default:
       return state;

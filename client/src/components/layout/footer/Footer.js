@@ -8,7 +8,7 @@ import AuthContext from "../../../context/auth/authContext";
 const Footer = () => {
   const authContext = useContext(AuthContext);
 
-  const { isAuthenticated } = authContext;
+  const { isAuthenticated, token } = authContext;
 
   const links = [
     "Home",
@@ -104,7 +104,7 @@ const Footer = () => {
     </Grid>
   );
 
-  return isAuthenticated ? null : guestFooter;
+  return token || isAuthenticated ? null : guestFooter;
 };
 
 export default Footer;

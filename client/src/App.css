@@ -147,7 +147,19 @@
 }
 
 @media only screen and (max-width: 600px) {
+  *,
+  *::before,
+  *::after {
+    box-sizing: initial;
+  }
+
   .form-box {
+    width: 100%;
+  }
+
+  .auth-box {
+    left: 0;
+    margin: 0;
     width: 100%;
   }
 }

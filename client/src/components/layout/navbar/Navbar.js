@@ -5,7 +5,7 @@ import AuthContext from "../../../context/auth/authContext";
 
 const Navbar = () => {
   const authContext = useContext(AuthContext);
-  const { logout, isAuthenticated, user } = authContext;
+  const { logout, isAuthenticated, user, token } = authContext;
 
   const icons = [
     "fab fa-facebook-f",
@@ -73,7 +73,7 @@ const Navbar = () => {
     </nav>
   );
 
-  return isAuthenticated ? authLinks : guestLinks;
+  return token || isAuthenticated ? authLinks : guestLinks;
 };
 
 export default Navbar;

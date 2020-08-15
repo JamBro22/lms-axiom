@@ -84,13 +84,15 @@
   padding-left: 10px;
 }
 
+/* forms */
+
 .form-box {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   height: auto;
   width: 50%;
-  margin: 50px auto;
+  margin: auto;
   padding: 50px;
   background-color: rgba(248, 248, 255, 0.65);
 }
@@ -101,6 +103,7 @@
   background: linear-gradient(rgb(173, 216, 230, 0.3), rgb(173, 216, 230, 0.3)),
     url("./img/drawings.jpg");
   background-size: cover;
+  padding: 30px;
 }
 
 .form-head {
@@ -141,4 +144,10 @@
 .form-btn:hover {
   background: transparent;
   color: #4a40b1;
+}
+
+@media only screen and (max-width: 600px) {
+  .form-box {
+    width: 100%;
+  }
 }

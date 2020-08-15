@@ -66,7 +66,13 @@ const CourseForm = () => {
         <Header heading={current ? "Update Course" : "Add Course"} />
         <label htmlFor="image">Thumbnail</label>
         <br />
-        <input type="text" name="image" value={image} onChange={onChange} />
+        <input
+          type="text"
+          name="image"
+          value={image}
+          onChange={onChange}
+          required
+        />
         <br />
         <label htmlFor="title">Title:</label>
         <br />
@@ -76,6 +82,7 @@ const CourseForm = () => {
           value={title}
           placeholder="Add a title..."
           onChange={onChange}
+          required
         />
         <br />
         <label htmlFor="description">Description:</label>
@@ -87,6 +94,7 @@ const CourseForm = () => {
           placeholder="Add a description..."
           value={description}
           onChange={onChange}
+          required
         />
         <br />
         <label htmlFor="content">Content:</label>
@@ -97,6 +105,7 @@ const CourseForm = () => {
           placeholder="Enter some content"
           value={content}
           onChange={onChange}
+          required
         />
         <button type="submit" onSubmit={onSubmit}>
           {current ? "Update Course" : "Add Course"}

@@ -12,6 +12,21 @@
   margin: 0;
 }
 
+.auth-home {
+  width: 84%;
+  transform: translateX(19%);
+  text-align: center;
+  height: 100vh;
+  padding-top: 60px;
+  background-size: cover;
+  background-image: linear-gradient(
+      rgb(204, 207, 240, 0.3),
+      rgb(204, 207, 240, 0.3)
+    ),
+    url("../../img/drawing.jpg");
+  margin: 0;
+}
+
 .home-box {
   background-color: rgba(248, 248, 255, 0.9);
   padding: 30px;

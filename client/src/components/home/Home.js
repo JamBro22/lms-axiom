@@ -17,7 +17,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="home-background">
+    <div className={token ? "auth-home" : "home-background"}>
       <div className="home-box">
         <h1 className="titillium heading home-head">Welcome to Axiom</h1>
         <p className="paragraph">

@@ -6,9 +6,9 @@ import "../../../App.css";
 import AuthContext from "../../../context/auth/authContext";
 
 const Footer = () => {
-const authContext = useContext(AuthContext);
+  const authContext = useContext(AuthContext);
 
-const { isAuthenticated } = authContext;
+  const { isAuthenticated } = authContext;
 
   const links = [
     "Home",
@@ -73,7 +73,7 @@ const { isAuthenticated } = authContext;
             className="input paragraph"
           />
           <br />
-          <input type="submit" value="Send" className="input" />
+          <input type="submit" value="Send" className="input send" />
         </form>
         <p className="paragraph" id="details">
           <i className="fas fa-mobile-alt contact-icon"></i>{" "}
@@ -104,10 +104,7 @@ const { isAuthenticated } = authContext;
     </Grid>
   );
 
-
-  return(
-  isAuthenticated ? null : guestFooter
-  );
+  return isAuthenticated ? null : guestFooter;
 };
 
 export default Footer;

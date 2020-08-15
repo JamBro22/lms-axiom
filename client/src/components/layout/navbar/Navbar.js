@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "./Navbar.css";
 import AuthContext from "../../../context/auth/authContext";
 
@@ -21,7 +21,9 @@ const Navbar = () => {
   const guestLinks = (
     <nav className="guest-nav">
       <h1 className="londrina logo">
-        Axiom<span className="dot">.</span>
+        <Link to="/" className="home-link">
+          Axiom<span className="dot">.</span>
+        </Link>
       </h1>
       <ul className="guest-nav-list">
         <NavLink to="/login" className="guest-link-item">

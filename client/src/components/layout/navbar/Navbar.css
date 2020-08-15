@@ -14,8 +14,15 @@ ul {
 
 .logo {
   margin: auto 50px;
-  color: #4a40b1;
   font-size: xx-large;
+}
+
+.home-link {
+  color: #4a40b1;
+}
+
+.home-link:hover {
+  text-decoration: none;
 }
 
 .dot {
@@ -134,4 +141,25 @@ ul {
 .nav-icon {
   margin: 0 12px;
   background: transparent;
+}
+
+@media only screen and (max-width: 1200px) {
+  .guest-nav-list {
+    width: 50%;
+    top: 70px;
+    margin: 0;
+    padding-left: 25%;
+  }
+
+  .logo {
+    width: 50%;
+    margin: auto 0;
+    padding-left: 30px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .guest-nav-list {
+    padding-left: 0;
+  }
 }

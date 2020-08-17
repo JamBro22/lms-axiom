@@ -21,7 +21,7 @@ const CourseContent = () => {
   return (
     <Fragment>
       <Header heading={current && current.title} />
-      <div className="auth-box">
+      <div className="auth-box" id="content-box">
         <div className="content-image">{current && current.image}</div>
         <div className="content-description">
           <h4>Description</h4>

@@ -6,6 +6,7 @@ const TermsAndConditions = () => {
       <h2>
         <strong>Terms and Conditions</strong>
       </h2>
+      <p>*these terms and conditions pertains to a pretend company</p>
 
       <p>Welcome to Axiom!</p>
 

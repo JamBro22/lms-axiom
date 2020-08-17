@@ -1,18 +1,28 @@
+#content-box {
+  padding: 30px 100px;
+}
+
 .content-image {
   position: relative;
   height: 50vh;
-  width: 50%;
+  width: 100%;
   background-color: turquoise;
 }
 
 .content-description {
   position: relative;
-  padding: 50px;
   width: 100%;
+  margin-top: 30px;
 }
 
 .course-content {
   position: relative;
-  padding: 50px;
   width: 100%;
+  margin-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  #content-box {
+    padding: 30px 30px;
+  }
 }

@@ -4,7 +4,7 @@ const PrivacyPolicy = () => {
   return (
     <div className="terms-box">
       <h1>Privacy Policy for Axiom</h1>
-
+      <p>*this privacy policy pertains to a pretend company</p>
       <p>
         At Axiom, accessible from axiom.com, one of our main priorities is the
         privacy of our visitors. This Privacy Policy document contains types of

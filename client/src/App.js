@@ -6,6 +6,8 @@ import Alerts from "./components/layout/Alert";
 import Home from "./components/home/Home";
 import SignUp from "./components/auth/SignUp";
 import Login from "./components/auth/Login";
+import TermsAndConditions from "./components/layout/footer/TermsAndConditions";
+import PrivacyPolicy from "./components/layout/footer/PrivacyPolicy";
 import Dashboard from "./components/dashboard/Dashboard";
 import Explore from "./components/explore/Explore";
 import CourseForm from "./components/courses/CourseForm";
@@ -37,6 +39,12 @@ function App() {
               <Route path="/" exact component={Home} />
               <Route path="/signup" exact component={SignUp} />
               <Route path="/login" exact component={Login} />
+              <Route
+                path="/terms and conditions"
+                exact
+                component={TermsAndConditions}
+              />
+              <Route path="/privacy policy" exact component={PrivacyPolicy} />
               <PrivateRoute path="/dashboard" exact component={Dashboard} />
               <PrivateRoute path="/explore" exact component={Explore} />
               <PrivateRoute path="/addcourse" exact component={CourseForm} />

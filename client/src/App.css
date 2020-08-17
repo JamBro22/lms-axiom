@@ -146,6 +146,11 @@
   color: #4a40b1;
 }
 
+/* t's & c's and privacy policy */
+.terms-box {
+  padding: 30px 100px;
+}
+
 @media only screen and (max-width: 600px) {
   *,
   *::before,
@@ -161,5 +166,9 @@
     left: 0;
     margin: 0;
     width: 100%;
+  }
+
+  .terms-box {
+    padding: 30px 50px;
   }
 }

@@ -123,13 +123,12 @@ ul {
 }
 
 .nav-icon-list {
-  left: 15px;
-  position: relative;
-  width: 100%;
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
   height: 30px;
   display: flex;
   background: transparent;
-  margin-top: 170px;
 }
 
 .icon-list-item {
@@ -143,7 +142,7 @@ ul {
   background: transparent;
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1200px) and (min-width: 600px){
   .guest-nav-list {
     width: 50%;
     top: 70px;
@@ -155,6 +154,24 @@ ul {
     width: 50%;
     margin: auto 0;
     padding-left: 30px;
+  }
+
+  .auth-nav {
+    width: 18%;
+  }
+
+  .nav-icon-list {
+    left: 20px;
+  }
+}
+
+@media only screen and (max-width: 992px) and (min-width: 600px) {
+  .nav-icon {
+    margin: 0 6px;
+  }
+
+  .auth-nav-links {
+    transform: translateX(-12%);
   }
 }
 

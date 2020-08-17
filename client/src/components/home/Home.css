@@ -52,6 +52,11 @@
     height: auto;
     margin: 134px auto;
   }
+
+  .auth-home {
+    width: 82%;
+    transform: translateX(22%);
+  }
 }
 
 @media only screen and (max-width: 600px) {

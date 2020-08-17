@@ -74,6 +74,7 @@ const CourseForm = () => {
           name="image"
           value={image}
           onChange={onChange}
+          placeholder="Add image name..."
           className="course-form-input"
           required
         />
@@ -103,6 +104,7 @@ const CourseForm = () => {
           placeholder="Add a description..."
           value={description}
           onChange={onChange}
+          className="course-form-textarea"
           required
         />
         <br />
@@ -117,6 +119,7 @@ const CourseForm = () => {
           placeholder="Add some content..."
           value={content}
           onChange={onChange}
+          className="course-form-textarea"
           required
         />
         <button type="submit" onSubmit={onSubmit} className="submit-form">

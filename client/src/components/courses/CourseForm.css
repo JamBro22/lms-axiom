@@ -1,6 +1,7 @@
 .course-form {
   display: flex;
   flex-direction: column;
+  width: 50%;
 }
 
 .course-form-label {
@@ -9,6 +10,11 @@
 
 .course-form-input {
   border: 1px solid #706779;
+  padding-left: 10px;
+}
+
+.course-form-textarea {
+  padding: 0 10px;
 }
 
 .submit-form {
@@ -24,4 +30,10 @@
   color: #706779;
   background-color: #f8f8ff;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .course-form {
+    width: 70%;
+  }
 }

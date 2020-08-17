@@ -60,7 +60,19 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .auth-home {
+    position: fixed;
+    width: 100%;
+    transform: translateX(0);
+  }
+
   .home-box {
     height: auto;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .home-head {
+    font-size: 30px;
   }
 }

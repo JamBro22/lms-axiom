@@ -13,6 +13,10 @@
   z-index: 1;
 }
 
+.menu-icon {
+  display: none;
+}
+
 @media only screen and (max-width: 1200px) and (min-width: 600px) {
   .header {
     left: 18%;
@@ -24,11 +28,26 @@
     width: 100%;
     left: 0;
     font-size: 25px;
+    flex-direction: row;
+    justify-content: left;
+    padding: 20px 0 10px 20px;
+  }
+
+  .menu-icon {
+    display: inline-flex;
+    height: 30px;
+    margin-right: 10px;
+    background: transparent;
   }
 }
 
 @media only screen and (max-width: 300px) {
   .header {
     font-size: 20px;
+    padding-left: 15px;
+  }
+
+  .menu-icon {
+    margin-right: 5px;
   }
 }

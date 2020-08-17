@@ -3,6 +3,7 @@ import Header from "../layout/headers/Header";
 import CourseCard from "../../components/courses/CourseCard";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
+import AlertContext from "../../context/alerts/alertContext";
 import { Link } from "react-router-dom";
 
 const MyCourses = () => {
@@ -20,6 +21,10 @@ const MyCourses = () => {
     deleteCourse,
     clearCurrent,
   } = courseContext;
+
+  const alertContext = useContext(AlertContext);
+
+  const { setAlert } = alertContext;
 
   useEffect(() => {
     getCreatedCourses();
@@ -61,7 +66,10 @@ const MyCourses = () => {
               click={() => {
                 setCourse(course);
               }}
-              click2={() => deleteCourse(course._id)}
+              click2={() => {
+                setAlert("Course deleted", "danger");
+                deleteCourse(course._id);
+              }}
               link="/addcourse"
               key={course._id}
             />

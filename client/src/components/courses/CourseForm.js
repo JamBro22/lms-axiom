@@ -3,6 +3,7 @@ import Header from "../layout/headers/Header";
 import AuthContext from "../../context/auth/authContext";
 import CourseContext from "../../context/courses/courseContext";
 import AlertContext from "../../context/alerts/alertContext";
+import "./CourseForm.css";
 
 const CourseForm = () => {
   const alertContext = useContext(AlertContext);
@@ -62,19 +63,24 @@ const CourseForm = () => {
 
   return (
     <div className="auth-box">
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className="course-form">
         <Header heading={current ? "Update Course" : "Add Course"} />
-        <label htmlFor="image">Thumbnail</label>
+        <label htmlFor="image" className="course-form-label">
+          Thumbnail Image:
+        </label>
         <br />
         <input
           type="text"
           name="image"
           value={image}
           onChange={onChange}
+          className="course-form-input"
           required
         />
         <br />
-        <label htmlFor="title">Title:</label>
+        <label htmlFor="title" className="course-form-label">
+          Title:
+        </label>
         <br />
         <input
           type="text"
@@ -82,10 +88,13 @@ const CourseForm = () => {
           value={title}
           placeholder="Add a title..."
           onChange={onChange}
+          className="course-form-input"
           required
         />
         <br />
-        <label htmlFor="description">Description:</label>
+        <label htmlFor="description" className="course-form-label">
+          Description:
+        </label>
         <br />
         <textarea
           name="description"
@@ -97,17 +106,20 @@ const CourseForm = () => {
           required
         />
         <br />
-        <label htmlFor="content">Content:</label>
+        <label htmlFor="content" className="course-form-label">
+          Content:
+        </label>
         <br />
-        <input
-          type="text"
+        <textarea
           name="content"
-          placeholder="Enter some content"
+          cols="30"
+          rows="10"
+          placeholder="Add some content..."
           value={content}
           onChange={onChange}
           required
         />
-        <button type="submit" onSubmit={onSubmit}>
+        <button type="submit" onSubmit={onSubmit} className="submit-form">
           {current ? "Update Course" : "Add Course"}
         </button>
       </form>

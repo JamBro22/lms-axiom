@@ -1,0 +1,27 @@
+.course-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.course-form-label {
+  margin: 0;
+}
+
+.course-form-input {
+  border: 1px solid #706779;
+}
+
+.submit-form {
+  height: 30px;
+  margin-top: 20px;
+  border: 1px solid #706779;
+  background-color: #706779;
+  color: #f8f8ff;
+  margin-bottom: 30px;
+}
+
+.submit-form:hover {
+  color: #706779;
+  background-color: #f8f8ff;
+  cursor: pointer;
+}

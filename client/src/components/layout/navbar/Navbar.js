@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Fragment, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./Navbar.css";
 import AuthContext from "../../../context/auth/authContext";
@@ -6,6 +6,12 @@ import AuthContext from "../../../context/auth/authContext";
 const Navbar = () => {
   const authContext = useContext(AuthContext);
   const { logout, isAuthenticated, user, token } = authContext;
+
+  const [ open, setOpen ] = useState(false);
+
+  const openMenu = () => {
+    open ? setOpen(false) : setOpen(true)
+  }
 
   const icons = [
     "fab fa-facebook-f",
@@ -37,7 +43,9 @@ const Navbar = () => {
   );
 
   const authLinks = (
-    <nav className="auth-nav">
+    <Fragment>
+      <i class="fas fa-bars menu-icon" onClick={openMenu}></i>
+    <nav className={open ? "auth-nav" : "close-nav"}>
       <h1 className="londrina auth-logo transparent">
         Axiom<span className="dot transparent">.</span>
       </h1>
@@ -71,6 +79,7 @@ const Navbar = () => {
         })}
       </ul>
     </nav>
+    </Fragment>
   );
 
   return token || isAuthenticated ? authLinks : guestLinks;

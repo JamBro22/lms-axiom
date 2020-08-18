@@ -142,6 +142,10 @@ ul {
   background: transparent;
 }
 
+.menu-icon {
+  display: none;
+}
+
 @media only screen and (max-width: 1200px) and (min-width: 600px){
   .guest-nav-list {
     width: 50%;
@@ -193,5 +197,18 @@ ul {
 
   .nav-icon-list {
     left: 30%;
+  }
+
+  .menu-icon {
+    position: absolute;
+    color: #f8f8ff;
+    font-size: x-large;
+    top: 20px;
+    left: 15px;
+    z-index: 2;
+  }
+
+  .close-nav {
+    transition: 1s ease-out;
   }
 }

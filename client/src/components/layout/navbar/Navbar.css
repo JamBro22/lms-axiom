@@ -146,7 +146,7 @@ ul {
   display: none;
 }
 
-@media only screen and (max-width: 1200px) and (min-width: 600px){
+@media only screen and (max-width: 1200px) and (min-width: 600px) {
   .guest-nav-list {
     width: 50%;
     top: 70px;
@@ -189,6 +189,10 @@ ul {
     width: 100%;
     z-index: 2;
     text-align: center;
+    position: fixed;
+    height: 100vh;
+    background-color: #cacad6;
+    border: 1px solid #6c66af;
   }
 
   .auth-nav {
@@ -204,7 +208,7 @@ ul {
   }
 
   .menu-icon {
-    position: absolute;
+    position: fixed;
     color: #f8f8ff;
     font-size: x-large;
     top: 20px;
@@ -213,6 +217,6 @@ ul {
   }
 
   .close-nav {
-    transition: 1s ease-out;
+    transition: display 1s ease-out;
   }
 }

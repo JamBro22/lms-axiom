@@ -9,10 +9,10 @@ const Alert = () => {
     alertContext.alerts.map((alert) => (
       <div
         key={alert.id}
-        className={`alert alert-${alert.type}`}
+        className={`alert alert-${alert.type} alert-small`}
         style={{
-          position: "fixed",
-          zIndex: "0",
+          position: "absolute",
+          zIndex: "2",
         }}
       >
         <i className="fas fa-info-circle" /> {alert.msg}

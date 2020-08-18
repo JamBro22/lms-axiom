@@ -50,7 +50,7 @@ const Navbar = () => {
 
   const authLinks = (
     <Fragment>
-      <i class="fas fa-bars menu-icon" onClick={openMenu}></i>
+      <i className="fas fa-bars menu-icon" onClick={openMenu}></i>
       <nav className={open ? "auth-nav-small" : "close-nav" && "auth-nav"}>
         <h1 className="londrina auth-logo transparent">
           Axiom<span className="dot transparent">.</span>

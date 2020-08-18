@@ -182,6 +182,7 @@ ul {
 @media only screen and (max-width: 600px) {
   .guest-nav-list {
     padding-left: 0;
+    margin: 10px 0;
   }
 
   .auth-nav-small {

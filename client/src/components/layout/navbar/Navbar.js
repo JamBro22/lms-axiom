@@ -13,6 +13,12 @@ const Navbar = () => {
     open ? setOpen(false) : setOpen(true)
   }
 
+  const closeMenu = () => {
+    if (open) {
+      setOpen(false)
+    }
+  }
+
   const icons = [
     "fab fa-facebook-f",
     "fab fa-instagram",
@@ -45,7 +51,7 @@ const Navbar = () => {
   const authLinks = (
     <Fragment>
       <i class="fas fa-bars menu-icon" onClick={openMenu}></i>
-    <nav className={open ? "auth-nav" : "close-nav"}>
+    <nav className={open ? "auth-nav-small" : "close-nav" && "auth-nav"}>
       <h1 className="londrina auth-logo transparent">
         Axiom<span className="dot transparent">.</span>
       </h1>
@@ -53,7 +59,7 @@ const Navbar = () => {
         {user && user.firstName} {user && user.lastName}
       </h5>
       <ul className="auth-nav-links transparent">
-        <NavLink to="/" className="auth-link-item">
+        <NavLink to="/" className="auth-link-item" onClick={closeMenu}>
           <li className="list-item transparent">Home</li>
         </NavLink>
         <NavLink to="/Dashboard" className="auth-link-item">

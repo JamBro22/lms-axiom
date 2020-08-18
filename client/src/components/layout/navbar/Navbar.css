@@ -184,11 +184,15 @@ ul {
     padding-left: 0;
   }
 
-  .auth-nav {
+  .auth-nav-small {
     top: 70px;
     width: 100%;
     z-index: 2;
     text-align: center;
+  }
+
+  .auth-nav {
+    display: none;
   }
 
   .auth-nav-links {

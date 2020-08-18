@@ -218,6 +218,6 @@ ul {
   }
 
   .close-nav {
-    transition: display 1s ease-out;
+    transition: 1s ease-out;
   }
 }

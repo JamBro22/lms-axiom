@@ -28,6 +28,7 @@ const Navbar = () => {
 
   const onLogout = () => {
     logout();
+    closeMenu();
   };
 
   const guestLinks = (

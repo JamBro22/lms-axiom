@@ -11,7 +11,7 @@ const Alert = () => {
         key={alert.id}
         className={`alert alert-${alert.type} alert-small`}
         style={{
-          position: "absolute",
+          position: "fixed",
           zIndex: "2",
         }}
       >

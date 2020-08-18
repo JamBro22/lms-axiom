@@ -27,24 +27,18 @@ const CourseCard = ({
         basedOn="letters"
         className="card-text description"
       />
-      <div className="btns">
-        <Link to={link} className="link-btn">
-          <button
-            type="button"
-            className="btn btn-dark buttons"
-            onClick={click}
-          >
-            {button1}
-          </button>
-        </Link>
-        <button
-          type="button"
-          className={`btn btn-${type} buttons`}
-          onClick={click2}
-        >
-          {button2}
+      <Link to={link} className="link-btn">
+        <button type="button" className="btn btn-dark buttons" onClick={click}>
+          {button1}
         </button>
-      </div>
+      </Link>
+      <button
+        type="button"
+        className={`btn btn-${type} buttons`}
+        onClick={click2}
+      >
+        {button2}
+      </button>
     </div>
   );
 };

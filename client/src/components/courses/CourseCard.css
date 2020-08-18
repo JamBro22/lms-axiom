@@ -17,11 +17,6 @@
   width: 100%;
 }
 
-.btns {
-  position: relative;
-  bottom: 10px;
-}
-
 .card-image {
   position: relative;
   background-color: #9a9ec9;
@@ -33,6 +28,7 @@
 .title {
   background: transparent;
   color: #4a40b1;
+  height: 60px;
 }
 
 .description {
@@ -46,5 +42,9 @@
   .course-card {
     width: 80%;
     margin: 20px 0;
+  }
+
+  .title {
+    height: auto;
   }
 }

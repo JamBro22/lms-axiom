@@ -59,7 +59,12 @@ const Footer = () => {
             Email:
           </label>
           <br />
-          <input type="email" name="email" className="input paragraph" />
+          <input
+            type="email"
+            name="email"
+            className="input paragraph"
+            required
+          />
           <br />
           <label htmlFor="message" className="paragraph input-label">
             Message:
@@ -71,6 +76,7 @@ const Footer = () => {
             rows="4"
             cols="30"
             className="input paragraph"
+            required
           />
           <br />
           <input type="submit" value="Send" className="input send" />

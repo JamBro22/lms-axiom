@@ -44,7 +44,7 @@ const Footer = () => {
                   ? "signup"
                   : link.toLowerCase()
               }
-              className="link-item"
+              id="link-item"
               key={link}
             >
               <li className="paragraph link">{link}</li>
